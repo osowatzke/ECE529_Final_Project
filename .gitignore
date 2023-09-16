@@ -4,3 +4,8 @@
 *.pdf
 *.gz
 *.asv
+*-blx.bib
+*.bbl
+*.bcf
+*.blg
+*.xml

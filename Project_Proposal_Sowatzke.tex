@@ -1,20 +1,35 @@
 \documentclass{article}
-
 \usepackage{enumitem}
+\usepackage{cite}
+%\usepackage[english]{babel}
+%\usepackage{biblatex}
+
+%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+%\bibliography{sources}
+
+%\addbibresource{sources.bib}
+%\usepackage{biblatex}
+%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+%\usepackage{cite}
 
 \title{ECE 529 Final Project Proposal}
 \author{Owen Sowatzke}
 \date{September 21, 2023}
-
+	
 \begin{document}
 	\maketitle
-	
+
 	\begin{enumerate}
 		\item Description of Proposed Project:
 		
 			For the project, I plan to compare the performance of several different direction of arrival algorithms operating on data from a uniform linear array. These algorithms include beamforming, MVDR, MUSIC, improved MUSIC, Root Music, and ESPRIT. The performance of each alogorithm will be compared by examining their angle estimate outputs while varying simulation parameters. Parameters of interest include the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, number of correlation samples, signal to noise ratio, number of sources, angle separation between sources, and correlation between source signals. 
 			
 		\item References
+		
+		\nocite{9001455}
+		\nocite{7322593}
+		\nocite{9392663}
+		\nocite{6114042}
 		
 		\item Resources:
 		
@@ -27,5 +42,11 @@
 		\item Test Data	
 			
 			Test Data will be generated using MATLAB. Perfomance comparisons will be made by comparing angle errors for each of the techniques. 
-	\end{enumerate}	 
+	\end{enumerate}	
+	
+	\newpage
+	\bibliography{sources}{}
+	\bibliographystyle{ieeetr}
+	%\bibliographystyle{ieeetr}
+	%\bibliography{sources}
 \end{document}
