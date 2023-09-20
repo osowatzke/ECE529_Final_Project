@@ -21,43 +21,11 @@
 
 	For the term project, I plan to compare the performance of several different direction of arrival algorithms operating on data from a uniform linear array. These algorithms include beamforming, MVDR, MUSIC, improved MUSIC, Root Music, and ESPRIT. To assess the performance of each algorithm, I will compare their spatial spectrum and angle estimate outputs, while varying system parameters and input data. Specific system parameters that I will vary include the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, and the number of correlation samples. I will also vary the input data by adjusting the signal to noise ratio, the number of sources, the angle separation between sources, and the correlation between source signals.
 	
-	To assess algorithm performance, I will need algorithm outputs for each set of inputs. I plan to create this output data using software. This should eliminate the need for any special hardware resources. Furthermore, the number of software runs and the computation time of each run do not justify additional computing resources. Therefore, I will use my personal machine to implement each of the algorithms.
+	To assess algorithm performance, I will need algorithm outputs for each set of inputs. I plan to create this output data using software. This should eliminate the need for any special hardware resources. Furthermore, the number of software runs and the computation time of each run do not justify additional computing resources. Therefore, I will use my personal machine to run each of the algorithms.
 	
-	the required number of runs and computation time for each run do not warrant additional computation resources, so none will be used in this project.
+	All of my project software will be implemented in MATLAB. I plan to compose all the required functions and classes except those already provided by MATLAB. Some of MATLAB-provided functions will be sourced from varying toolboxes. These toolboxes include the DSP System Toolbox, the Signal Processing Toolbox, and the Phased Array System Toolbox.
 	
-	first need to generate each of the algorithm outputs. To compare each of the direction of arrival algorithms, they will be implemented in software and run over the same data sets. As such, no hardware resources will be needed. Furthermore, the required computation time and number of runs do not warrant the use of additional computation resources. 
-	
-	%Therefore, all project software will be executed on my local machine.
-	
-	The software in the project will be implemented in MATLAB. I will write all the functions and classes used in the project, except those already provided by MATLAB. Some of MATLAB-provided functions will be sourced from varying toolboxes. These toolboxes include the DSP System Toolbox, the Signal Processing Toolbox, and the Phased Array System Toolbox.
-	
-% while varying simulation parameters. Parameters of interest include the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, the number of correlation samples, signal to noise ratio, number of sources, angle separation between sources, and correlation between source signals.
-	
-% while varying the source signals and system parameters. System parameters of interest include the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, and the number of correlation samples.
-	
-%signal to noise ratio, number of sources, angle separation between sources, and correlation between source signals.
-	
-	To compare Each algorithm will be implemented in MATLAB and run over the same data sets. 
-	All performance evaluations will be done using MATLAB software.  No special computing resources or hardware resources will be required to evaluate the performance of the algorithms under each of the operating conditions. Instead, the algorithms will be evaluated in MATLAB on my local machine.
-	
-	\begin{enumerate}
-		\item Description of Proposed Project:
-		
-			For the project, I plan to compare the performance of several different direction of arrival algorithms operating on data from a uniform linear array. These algorithms include beamforming, MVDR, MUSIC, improved MUSIC, Root Music, and ESPRIT. The performance of each algorithm will be compared by examining their spatial spectrum and angle estimate outputs, while varying simulation parameters. Parameters of interest include the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, number of correlation samples, signal to noise ratio, number of sources, angle separation between sources, and correlation between source signals. 
-			
-		\item Resources:
-		
-			No special computing or hardware resources will be needed to evaluate the performance of the direction of arrival algorithms. Instead, the algorithms will be evaluated in MATLAB on my local machine.
-			
-		\item Software
-		
-			The software in the project will be implemented in MATLAB. I will write all the functions and classes used in the project, except those already provided by MATLAB. Some of MATLAB-provided functions will be sourced from varying toolboxes. These toolboxes include the DSP System Toolbox, the Signal Processing Toolbox, and the Phased Array System Toolbox.
-			
-		\item Test Data	
-			
-			I will test my program with uniform linear array data, generated using functions which I will implement in MATLAB. These functions will vary the input data based on variables such as the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, the signal to noise ratio, the number of sources, the source signals, and the source locations. The performance of each algorithm will be compared by examining their spatial spectrums and angle estimates.
-			
-	\end{enumerate}	
+	I will test my program with uniform linear array data, generated using functions which I will implement in MATLAB. These functions will vary the input data based on variables such as the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, the signal to noise ratio, the number of sources, the source signals, and the source locations. The performance of each algorithm will be compared by examining their spatial spectrums and angle estimates.
 	
 	\nocite{doa_algorithms_raghu}
 	\nocite{mvdr_montlouis}
