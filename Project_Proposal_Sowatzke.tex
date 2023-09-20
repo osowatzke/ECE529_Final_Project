@@ -1,16 +1,6 @@
 \documentclass{article}
 \usepackage{enumitem}
 \usepackage{cite}
-%\usepackage[english]{babel}
-%\usepackage{biblatex}
-
-%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
-%\bibliography{sources}
-
-%\addbibresource{sources.bib}
-%\usepackage{biblatex}
-%\usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
-%\usepackage{cite}
 
 \title{Term Project Proposal}
 \author{Owen Sowatzke}
@@ -23,9 +13,9 @@
 	
 	To assess algorithm performance, I will need algorithm outputs for each set of inputs. I plan to create this output data using software. This should eliminate the need for any special hardware resources. Furthermore, the number of software runs and the computation time of each run do not justify additional computing resources. Therefore, I will use my personal machine to run each of the algorithms.
 	
-	All of my project software will be implemented in MATLAB. I plan to compose all the required functions and classes except those already provided by MATLAB. Some of MATLAB-provided functions will be sourced from varying toolboxes. These toolboxes include the DSP System Toolbox, the Signal Processing Toolbox, and the Phased Array System Toolbox.
+	All of my project software will be implemented in MATLAB. Of the required functions and classes, I plan to compose all except those already provided by MATLAB. Some of the MATLAB built-in functions will be sourced from varying toolboxes. These toolboxes include the DSP System Toolbox, the Signal Processing Toolbox, and the Phased Array System Toolbox.
 	
-	I will test my program with uniform linear array data, generated using functions which I will implement in MATLAB. These functions will vary the input data based on variables such as the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, the signal to noise ratio, the number of sources, the source signals, and the source locations. The performance of each algorithm will be compared by examining their spatial spectrums and angle estimates.
+	To validate the behavior of my software and to compare the output of each algorithm, I will need uniform linear array data for each test scenario. I will create this test data using additional MATLAB code, which will condition the input data based on parameters such as the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, the signal to noise ratio, the number of sources, the source signals, and the source locations. The spatial spectrum outputs for each set of input data will serve a basis for qualitative and quantitative comparisons of each algorithm. Specifically, I will perform qualitative analysis by examining the shape of the spatial spectrum, while I will perform quantitative analysis by examining angle estimates and corresponding root mean squared errors.
 	
 	\nocite{doa_algorithms_raghu}
 	\nocite{mvdr_montlouis}
@@ -36,7 +26,5 @@
 	\nocite{esprit_ning}
 	\newpage
 	\bibliography{sources}{}
-	\bibliographystyle{ieeetr}
-	%\bibliographystyle{ieeetr}
-	%\bibliography{sources}
+	\bibliographystyle{ieeetr}s
 \end{document}
