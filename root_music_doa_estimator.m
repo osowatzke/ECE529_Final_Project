@@ -13,7 +13,7 @@ classdef root_music_doa_estimator < key_value_constructor
     methods
 
         % Function creates the spatial spectrum using beamforming
-        function theta = compute_roots(self, rx_data)
+        function theta = compute_source_angles(self, rx_data)
 
             % compute the number of received samples
             num_samples = size(rx_data,2);
