@@ -56,6 +56,11 @@ root_music_estimator = root_music_doa_estimator(...
     'num_sources',      length(source_angle),...
     'element_spacing',  element_spacing);
 
+% Create espirit direction of arrival estimator
+espirit_estimator = espirit_doa_estimator(...
+    'num_sources',      length(source_angle),...
+    'element_spacing',  element_spacing);
+
 % Create receive data for linear array
 rx_data = linear_array.create_rx_data();
 
@@ -73,6 +78,9 @@ improved_music_spatial_spectrum = improved_music_estimator.create_spatial_spectr
 
 % Create root music angle estimates
 root_music_source_angles = root_music_estimator.compute_source_angles(rx_data);
+
+% Create espirit music angle estimates
+espirit_source_angles = espirit_estimator.compute_source_angles(rx_data);
 
 % Create figure
 figure(1)
@@ -101,13 +109,23 @@ colorOrderIndex = get(gca,'ColorOrderIndex');
 plotColor = colorOrder(colorOrderIndex,:);
 line((root_music_source_angles.').*ones(2,1), repmat(ylim.',1,length(root_music_source_angles)),...
     'Color',plotColor,'LineWidth',1.5);
+colorOrderIndex = set(gca,'ColorOrderIndex',colorOrderIndex+1);
+
+% plot espirit angle estimates
+colorOrder = get(gca,'ColorOrder');
+colorOrderIndex = get(gca,'ColorOrderIndex');
+plotColor = colorOrder(colorOrderIndex,:);
+line((espirit_source_angles.').*ones(2,1), repmat(ylim.',1,length(espirit_source_angles)),...
+    'Color',plotColor,'LineWidth',1.5);
+colorOrderIndex = set(gca,'ColorOrderIndex',colorOrderIndex+1);
 xlim([look_angle(1) look_angle(end)]);
 grid on;
 box on;
-colorOrderIndex = set(gca,'ColorOrderIndex',colorOrderIndex+1);
+
 
 % Create legend
 legend([{'Beamforming','Capon','Music','Improved Music','Root Music'},...
+    repmat({''},1,length(root_music_source_angles)-1),{'ESPRIT'},...
     repmat({''},1,length(root_music_source_angles)-1)]);
 
 % label axes
