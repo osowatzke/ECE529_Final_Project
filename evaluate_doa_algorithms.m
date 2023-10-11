@@ -109,7 +109,7 @@ colorOrderIndex = get(gca,'ColorOrderIndex');
 plotColor = colorOrder(colorOrderIndex,:);
 line((root_music_source_angles.').*ones(2,1), repmat(ylim.',1,length(root_music_source_angles)),...
     'Color',plotColor,'LineWidth',1.5);
-colorOrderIndex = set(gca,'ColorOrderIndex',colorOrderIndex+1);
+set(gca,'ColorOrderIndex',colorOrderIndex+1);
 
 % plot espirit angle estimates
 colorOrder = get(gca,'ColorOrder');
@@ -117,7 +117,7 @@ colorOrderIndex = get(gca,'ColorOrderIndex');
 plotColor = colorOrder(colorOrderIndex,:);
 line((espirit_source_angles.').*ones(2,1), repmat(ylim.',1,length(espirit_source_angles)),...
     'Color',plotColor,'LineWidth',1.5);
-colorOrderIndex = set(gca,'ColorOrderIndex',colorOrderIndex+1);
+set(gca,'ColorOrderIndex',colorOrderIndex+1);
 xlim([look_angle(1) look_angle(end)]);
 grid on;
 box on;
