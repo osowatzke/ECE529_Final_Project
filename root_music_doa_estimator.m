@@ -34,7 +34,7 @@ classdef root_music_doa_estimator < key_value_constructor
             M = size(C,1);
             cl = zeros(M,1);
             for i = 1:M
-                cl(i) = sum(diag(C(i:end,1:(end-i+1))));
+                cl(i) = sum(diag(C(1:(end-i+1),i:end)));
             end
             cl = [conj(flip(cl(2:end))); cl];
 
@@ -52,7 +52,7 @@ classdef root_music_doa_estimator < key_value_constructor
             zi = zi(1:self.num_sources);
 
             % Find the angles of each source
-            theta = -180/pi*asin(1/(2*pi*self.element_spacing)*angle(zi));
+            theta = 180/pi*asin(1/(2*pi*self.element_spacing)*angle(zi));
         end
     end
 end
