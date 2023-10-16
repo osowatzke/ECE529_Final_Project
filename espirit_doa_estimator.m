@@ -21,12 +21,10 @@ classdef espirit_doa_estimator < key_value_constructor
             % Function estimates the auto-correlation matrix
             Rxx = 1/num_samples*(rx_data*rx_data');
 
-            % doa = espritdoa(Rxx,self.num_sources);
-
-            % Compute the eigenvalues of the matrix
+            % Compute the eigenvectors of the matrix
             [Es,~] = eig(Rxx);
 
-            % Select eigenvector corresponding to maximum
+            % Extract signal eigenvectors
             Es = Es(:,(end-self.num_sources+1):end);
 
             % Decompose E into Es1 and Es2
@@ -46,7 +44,7 @@ classdef espirit_doa_estimator < key_value_constructor
             phi = eig(psi);
 
             % Angle estiamte
-            theta = -180/pi*asin(angle(phi)/(2*pi*self.element_spacing));
+            theta = 180/pi*asin(angle(phi)/(2*pi*self.element_spacing));
         end
     end
 end

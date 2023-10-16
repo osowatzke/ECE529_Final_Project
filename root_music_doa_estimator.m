@@ -36,7 +36,7 @@ classdef root_music_doa_estimator < key_value_constructor
             for i = 1:M
                 cl(i) = sum(diag(C(1:(end-i+1),i:end)));
             end
-            cl = [conj(flip(cl(2:end))); cl];
+            cl = flip([conj(flip(cl(2:end))); cl]);
 
             % Find the roots of cl
             zi = roots(cl);

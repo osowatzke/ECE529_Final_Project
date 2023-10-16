@@ -70,7 +70,7 @@ classdef uniform_linear_array < key_value_constructor
 
             % Determine the phase shift of each source on each of the
             % uniform linear array elements. (num_elements x num_sources)
-            source_phase_shift = exp(-1i*2*pi*n.*d*sin(theta));
+            source_phase_shift = exp(1i*2*pi*n.*d*sin(theta));
 
             % For each array element, the received signal is the sum of all
             % the signal returns on that element. If we perform matrix

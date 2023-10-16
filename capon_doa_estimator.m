@@ -29,7 +29,7 @@ classdef capon_doa_estimator < key_value_constructor
 
             % Create a (num_elements x num_angles) matrix for steering the
             % beam to each of the look angles
-            A = exp(-1i*2*pi*self.element_spacing...
+            A = exp(1i*2*pi*self.element_spacing...
                 *sin(look_angle_rad).*(0:(num_elements-1)).');
 
             % Invert the Rxx matrix
