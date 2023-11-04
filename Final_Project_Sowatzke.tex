@@ -58,6 +58,20 @@ osowatzke@arizona.edu}}
 	\begin{equation}
 	 	a(\theta_i) = \begin{bmatrix} 1 & e^{j{\beta}d\sin(\theta_i)} & \cdots & e^{j{\beta}d(M-1)\sin(\theta_i)}\end{bmatrix}^T
 	\end{equation}
+	
+		Each direction of arrival algorithm leverages spatial auto-correlation matrices $R_{xx}$ defined in \cite{doa_algorithms_raghu}  using the received signal vector $X$ as:
+	%
+	\begin{equation}
+		R_{xx} = E[XX^H]
+	\end{equation}
+	%
+	The expected value in the above equation is estimated using a finite number of samples of the received signal vector $X$. The resulting spatial auto-correlation estimate ${R}_{xx}$ is given in \cite{doa_algorithms_raghu} as follows: 
+	%
+	\begin{equation}
+		\hat{R}_{xx} = \sum_{n=1}^{K}{X(n)X^H(n)}
+	\end{equation}
+	
+	
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
