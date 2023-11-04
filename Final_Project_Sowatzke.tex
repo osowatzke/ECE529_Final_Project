@@ -56,6 +56,7 @@ osowatzke@arizona.edu}}
 	where $a(\theta_i)$ represents the Mx1 array response for the source signal incident at angle $\theta_i$ and is defined in \cite{doa_algorithms_raghu} as:
 	%	
 	\begin{equation}
+		\label{array_response_vector}
 	 	a(\theta_i) = \begin{bmatrix} 1 & e^{j{\beta}d\sin(\theta_i)} & \cdots & e^{j{\beta}d(M-1)\sin(\theta_i)}\end{bmatrix}^T
 	\end{equation}
 	
@@ -65,13 +66,24 @@ osowatzke@arizona.edu}}
 		R_{xx} = E[XX^H]
 	\end{equation}
 	%
-	The expected value in the above equation is estimated using a finite number of samples of the received signal vector $X$. The resulting spatial auto-correlation estimate ${R}_{xx}$ is given in \cite{doa_algorithms_raghu} as follows: 
+	The expected value in the above equation is estimated using $K$ (a finite number) samples of the received signal vector $X$. The resulting spatial auto-correlation estimate ${R}_{xx}$ is given in \cite{doa_algorithms_raghu} as follows: 
 	%
 	\begin{equation}
+		\label{spatial_matrix_estimate}
 		\hat{R}_{xx} = \sum_{n=1}^{K}{X(n)X^H(n)}
 	\end{equation}
 	
+	\section{Direction of Arrival Algorithms}
 	
+	\subsection{Beamforming}
+	
+		Beamforming uses the estimate of the spatial auto-correlation matrix $\hat{R}_{xx}$ defined in Equation (\ref{spatial_matrix_estimate}) to estimate the spatial spectrum $\hat{P}_{bf}(\theta)$ \cite{doa_algorithms_raghu}. The spatial spectrum estimate $\hat{P}_{bf}(\theta)$ is defined by
+		%
+		\begin{equation}
+			\hat{P}_{bf}(\theta) = a^H(\theta)\hat{R}_{xx}a(\theta)
+		\end{equation}
+		%
+		where $a(\theta)$ is the array response given in Equation (\ref{array_response_vector}).
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
