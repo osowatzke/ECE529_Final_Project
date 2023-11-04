@@ -29,9 +29,10 @@ osowatzke@arizona.edu}}
 		\label{Monte Carlo Estimate}
 	\end{figure}
 	
-	As shown in the figure above, let $d$ be the distance between successive array elements, and $\beta$ be defined as $2\pi/\lambda$. Then if each of the source signals is given as $s_1(n),...,s_D(n)$, the received signal on the m-th element can be written as:
+	As shown in the figure above, let $d$ be the distance between successive array elements, and $\beta$ be defined as $2\pi/\lambda$. Then if each of the source signals is given as $s_1(n),...,s_D(n)$, the signal received by m-th array element can be written as:
 	%
 	\begin{equation}
+		\label{received_signal}
 		\begin{split}
 			x_m(n) &= s_1(n)e^{-j{\beta}d(m-1)\sin{\theta_1}} + \cdots\\
 			&+ s_D(n)e^{-j{\beta}d(m-1)\sin{\theta_D}} + w_m(n)
@@ -40,6 +41,31 @@ osowatzke@arizona.edu}}
 	%
 	where $w_m(n)$ denotes the noise on the m-th element \cite{doa_algorithms_raghu}.
 	
+	Equation (\ref{received_signal} can be rewritten in matrix form as follows:
+	%
+	\begin{equation}
+		X = AS + W
+	\end{equation}
+	%
+	where $X = \begin{bmatrix} x_1(n) & \cdots & x_n(n)\end{bmatrix}^T$ is the Mx1 received signal vector, $A$ is the MxD array steering matrix, $S = \begin{bmatrix} s_1(n) & \cdots & s_D(n)\end{bmatrix}^T$ is the Dx1 source signal vector, and $W = \begin{bmatrix} w_1(n) & \cdots & w_n(n)\end{bmatrix}^T$ is the Mx1 noise signal vector \cite{doa_algorithms_raghu}. The array steering matrix $A$ can be written as:
+	%
+	\begin{equation}
+		A = \begin{bmatrix} a(\theta_1) & \cdots & a(\theta_D) \end{bmatrix}
+	\end{equation}
+	%
+	where $a(\theta_i)$ represents the Mx1 array response for the source signal incident at angle $\theta_i$ and is defined in \cite{doa_algorithms_raghu} as:
+	%	
+	\begin{equation}
+	 	a(\theta_i) = \begin{bmatrix} 1 & e^{j{\beta}d\sin(\theta_i)} & \cdots & e^{j{\beta}d(M-1)\sin(\theta_i)}\end{bmatrix}^T
+	\end{equation}
+	%\begin{equation}
+	%	A = \begin{bmatrix}
+	%		1 & 1 & \cdots & 1\\
+	%		e^{j{\beta}d\sin{\theta_1}} & e^{j{\beta}d\sin{\theta_2}} & \cdots & e^{j{\beta}d\sin{\theta_D}} \\
+	%		\vdots & \vdots & \ddots & \vdots\\
+	%		e^{j{\beta}d(M-1)\sin{\theta_1}} & e^{j{\beta}d(M-1)\sin{\theta_2}} & \cdots & e^{j{\beta}d(M-1)\sin{\theta_D}}
+	%	\end{bmatrix}
+	%\end{equation}
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEabrv,sources}
 \end{document}
