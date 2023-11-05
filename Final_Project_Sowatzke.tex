@@ -108,10 +108,17 @@ osowatzke@arizona.edu}}
 		\hat{R}_{xx} = E{\Lambda}E^H
 	\end{equation}
 	%
-	In the above equation, $\Lambda = \text{diag}\{\lambda_0,...,\lambda_{M-1}\}$ is the MxM diagonal eigenvalue matrix and $E=\{e_0,...,e_{M-1}\}$ is the MxM eigenvector matrix.
+	In the above equation, $\Lambda = \text{diag}\{\lambda_0,...,\lambda_{M-1}\}$ is the MxM diagonal eigenvalue matrix and $E=\{e_0,...,e_{M-1}\}$ is the MxM eigenvector matrix. If the eigenvalues are sorted in ascending order (i.e. $\lambda_0 < ... < \lambda_{M-1}$), then the $D$ smallest eigenvalues $\{\lambda_0,...,\lambda_{D-1}\}$ and their corresponding eigenvectors $\{e_0,...,e_{D-1}\}$ correspond to the noise subspace.
 	
-	If the eigenvalues are sorted in ascending order (i.e. $\lambda_0 < ... < \lambda_{M-1}$), then the $D$ smallest eigenvalues $\{\lambda_0,...,\lambda_{D-1}\}$ and their corresponding eigenvectors $\{e_0,...,e_{D-1}\}$ correspond to the noise subspace. The number of source signals $D$ is typically not known, but can be estimated
-	
+	The number of source signals $D$ is typically not known, but can be estimated using a variety of methods, which include AIC and MDL \cite{num_sources_est_salman}. Both of these algorithms require a flipped copy of the eigenvalues such that $\lambda_0 > ... > \lambda_{M-1}$. Using the flipped eigenvalues, the number of sources estimated with AIC is given in \cite{num_sources_est_salman} as
+	%
+	\begin{equation}
+		\begin{split}
+		N_{AIC} &= argmin_n\left(-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
+		& \left. + 2n(2M - n) \vphantom{-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}} \right)
+		\end{split}
+	\end{equation}
+	where $n$ is the index of each eigenvalue.
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
