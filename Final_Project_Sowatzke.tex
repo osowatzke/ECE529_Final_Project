@@ -114,11 +114,18 @@ osowatzke@arizona.edu}}
 	%
 	\begin{equation}
 		\begin{split}
-		N_{AIC} &= argmin_n\left(-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
+		N_{AIC} &= argmin_n\left(-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-n}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
 		& \left. + 2n(2M - n) \vphantom{-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}} \right)
 		\end{split}
 	\end{equation}
-	where $n$ is the index of each eigenvalue.
+	where $n$ is the index of each eigenvalue. Similarly, the number of sources estimated with MDL is given in \cite{num_sources_est_salman} as
+	%
+	\begin{equation}
+		\begin{split}
+		N_{MDL} &= argmin_n\left(-\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-n}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
+		& \left. + \frac{1}{2}n(2M - n)\log(N) \vphantom{-\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}} \right)
+		\end{split}
+	\end{equation}
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
