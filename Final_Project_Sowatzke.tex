@@ -95,7 +95,27 @@ osowatzke@arizona.edu}}
 		\hat{P}_{capon}(\theta) = \frac{1}{a^H(\theta){\hat{R}_{xx}}^{-1}a(\theta)}
 	\end{equation}
 	%
-	Similar to beamforming direction of arrival estimation, Capon direction of angle estimation requires generating the spatial spectrum in discrete steps over a region of interest. Then, this spectrum can be searched for peaks. The angle corresponding to the peaks are the directions of arrival for each source.   
+	
+		Similar to beamforming direction of arrival estimation, Capon direction of angle estimation requires generating the spatial spectrum in discrete steps over a region of interest. Then, this spectrum can be searched for peaks. The angle corresponding to the peaks are the directions of arrival for each source.
+	
+	\subsection{MUSIC}
+	
+		The Multiple Signal Classification (MUSIC) algorithm takes an eigen-decomposition of the spatial auto-correlation matrix to produce orthogonal signal and noise subspaces. The eigenvectors of the resulting noise subspace are used to generate a spatial spectrum \cite{doa_algorithms_raghu}.
+	
+		To find the signal and noise subspaces, the spatial auto-correlation matrix must decomposed into its eigenvalues and eigenvectors:
+	%
+	\begin{equation}
+		\hat{R}_{xx} = E{\Lambda}E^H
+	\end{equation}
+	%
+	In the above equation, $\Lambda = \diag\{\lambda_0,...,\lambda_{M-1}\}$ is the MxM diagonal eigenvalue matrix and $E=\{e_0,...,e_{M-1}\}$ is the MxM eigenvector matrix.
+	
+	% If the eigenvectors are sorted in ascending order (i.e. $\lambda_0 < ... < \lambda_{M-1}$, then the $N$ smallest eigenvalues $\{lambda_0,...,\lambda_{N-1}\}$ correspond to the noise subspace.
+	
+		The number of sources $D$ is must then be known to separate the a user specified parameter. can be estimated through
+	
+	
+	The resulting noise subspace is used to generate 
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
