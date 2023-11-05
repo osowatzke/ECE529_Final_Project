@@ -108,13 +108,15 @@ osowatzke@arizona.edu}}
 		\hat{R}_{xx} = E{\Lambda}E^H
 	\end{equation}
 	%
-	In the above equation, $\Lambda = \text{diag}\{\lambda_0,...,\lambda_{M-1}\}$ is the MxM diagonal eigenvalue matrix and $E=\{e_0,...,e_{M-1}\}$ is the MxM eigenvector matrix. If the eigenvalues are sorted in ascending order (i.e. $\lambda_0 < ... < \lambda_{M-1}$), then the $D$ smallest eigenvalues $\{\lambda_0,...,\lambda_{D-1}\}$ and their corresponding eigenvectors $\{e_0,...,e_{D-1}\}$ correspond to the noise subspace.
+	In the above equation, $\Lambda = \text{diag}\{\lambda_0,...,\lambda_{M-1}\}$ is the MxM diagonal eigenvalue matrix and $E=\{e_0,...,e_{M-1}\}$ is the MxM eigenvector matrix.
 	
-	The number of source signals $D$ is typically not known, but can be estimated using a variety of methods, which include AIC and MDL \cite{num_sources_est_salman}. Both of these algorithms require a flipped copy of the eigenvalues such that $\lambda_0 > ... > \lambda_{M-1}$. Using the flipped eigenvalues, the number of sources estimated with AIC is given in \cite{num_sources_est_salman} as
+	Because there are $D$ sources and $M$ eigenvalues, the $N = M - D$ smallest eigenvalues should correspond to the noise subspace. Assume the eigenvalues are sorted in ascending order (i.e. $\lambda_0 < ... < \lambda_{M-1}$). Then, $\{\lambda_0,...,\lambda_{N-1}\}$ and their corresponding eigenvectors $\{e_0,...,e_{N-1}\}$ correspond to the noise subspace.
+	
+	The number of source signals $D$ is typically not known, but can be estimated using a variety of methods, which include AIC and MDL \cite{num_sources_est_salman}. Both of these algorithms require a flipped copy of the eigenvalues (i.e. $\lambda_0 > ... > \lambda_{M-1}$). Using the flipped eigenvalues, the number of sources estimated with AIC is given in \cite{num_sources_est_salman} as
 	%
 	\begin{equation}
 		\begin{split}
-		N_{AIC} &= argmin_n\left(-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-n}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
+		\hat{D} &= argmin_n\left(-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-n}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
 		& \left. + 2n(2M - n) \vphantom{-2\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}} \right)
 		\end{split}
 	\end{equation}
@@ -122,10 +124,18 @@ osowatzke@arizona.edu}}
 	%
 	\begin{equation}
 		\begin{split}
-		N_{MDL} &= argmin_n\left(-\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-n}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
-		& \left. + \frac{1}{2}n(2M - n)\log(N) \vphantom{-\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}} \right)
+		\hat{D} &= argmin_n\left(-\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-n}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}\right. \\
+		& \left. + \frac{1}{2}n(2M - n)\log(K) \vphantom{-\log\left(\frac{\prod_{i=n}^{M-1}{{\lambda_i}^{\frac{1}{M-k}}}}{\frac{1}{M - n}\sum_{i=n}^{M-1}{\lambda_i}}\right)^{(M-n)K}} \right)
 		\end{split}
 	\end{equation}
+	
+		Using the estimated number of sources $\hat{D}$, the number of noise eigenvalues/eigenvectors is approximately $\hat{N} = M - \hat{D}$. Let $E_n = \{e_0,...,e_{N-1}\}$ be the MxN noise subspace. Then, the music spectrum is given in \cite{doa_algorithms_raghu} as
+	%
+	\begin{equation}
+		\hat{P}_{music}(\theta) = \frac{1}{a^H(\theta)E_n{E_n}^Ha(\theta)}
+	\end{equation}
+	
+		As was the case with the other direction direction of angle algorithms, the music spectrum music be generated in discrete steps of a region of interest and then searched for peaks. The angles corresponding peaks are the angles of arrival.
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
