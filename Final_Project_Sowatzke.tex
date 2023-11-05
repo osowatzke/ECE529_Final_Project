@@ -84,6 +84,18 @@ osowatzke@arizona.edu}}
 		\end{equation}
 		%
 		where $a(\theta)$ is the array response given in Equation (\ref{array_response_vector}).
+		
+		To estimate the direction of arrival, compute the spatial spectrum in discrete steps over a region of interest. Then, find the peaks of the spatial spectrum. The angles corresponding to the peaks are the directions of arrival for each source.
+		
+	\subsection{Capon/MVDR}
+	
+		The Capon algorithm seeks to minimize the power of received signals in all direction except for the look angle \cite{doa_algorithms_raghu}. The Capon spatial spectrum $\hat{P}_{capon}(\theta)$ is generated using  the spatial auto-correlation matrix estimated by Equation (\ref{spatial_matrix_estimate}). For each look angle $\theta$, the spatial spectrum is given by:
+	%
+	\begin{equation}
+		\hat{P}_{capon}(\theta) = \frac{1}{a^H(\theta){\hat{R}_{xx}}^{-1}a(\theta)}
+	\end{equation}
+	%
+	Similar to beamforming direction of arrival estimation, Capon direction of angle estimation requires generating the spatial spectrum in discrete steps over a region of interest. Then, this spectrum can be searched for peaks. The angle corresponding to the peaks are the directions of arrival for each source.   
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
