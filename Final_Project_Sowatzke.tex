@@ -180,13 +180,33 @@ osowatzke@arizona.edu}}
 		\begin{equation}
 			\setlength{\arraycolsep}{2pt}
 			\renewcommand{\arraystretch}{0.8}
-			\begin{bmatrix}z^0 & z^{-1} & \cdots & z^{-(M-1)}\end{bmatrix}\begin{bmatrix}C_{11} & C_{12} & \cdots & C_{1m}\\ C_{21} & C_{22} & \cdots & C_{2m}\\ \vdots & \vdots & \ddots & \vdots\\ C_{m1} & C_{m2} & \cdots & C_{mm}\end{bmatrix}\begin{bmatrix}z^0 \\ z^1 \\ \vdots \\ z^{M-1}\end{bmatrix}
+			\begin{bmatrix}z^0 & z^{-1} & \cdots & z^{-(M-1)}\end{bmatrix}\begin{bmatrix}c_{11} & c_{12} & \cdots & c_{1M}\\ c_{21} & c_{22} & \cdots & c_{2M}\\ \vdots & \vdots & \ddots & \vdots\\ c_{M1} & c_{M2} & \cdots & c_{MM}\end{bmatrix}\begin{bmatrix}z^0 \\ z^1 \\ \vdots \\ z^{M-1}\end{bmatrix}
 		\end{equation}
 		%
-		where $z = e^{-j{\beta}\sin{\theta}}}$ and each $C_{ij}$ is an element of the matrix $C = E_{n}{E_{n}}^H$.
+		where $z = e^{-j{\beta}\sin{\theta}}$ and each $c_{ij}$ term is an element of the matrix $C = E_{n}{E_{n}}^H$.
 		
-		After performing matrix multiplication, the sum of the terms on the main diagonal will be weighted by $z^0$, the sum of the terms directly above it $C_ijrh The terms on the main diagonal with all hav
-		this is the point at which the algorithms begin to differ.The MUSIC spectrum is then given by Equation (\ref{music_spectrum}). The denominator of the spectrum can be written in the following form:
+		After performing matrix multiplication, the resulting polynomial will include powers of $z$ from $-M+1$ to $M-1$.
+		%
+		\begin{equation}
+			\label{root_music_summation}
+			\sum_{i=1}^{M}{\sum_{j=1}^{M}{C_{ij}z^{-i+j}}}
+		\end{equation}
+		%
+		Equation (\ref{root_music_summation}) can be further simplified to the form given in \cite{doa_algorithms_raghu}
+		%
+		\begin{equation}
+			\label{root_music_summation_simplified}
+		 	\sum_{i=-M+1}^{M-1}{c_iz^i}
+		\end{equation}
+		%
+		where $c_i$ is the sum of the diagonal $i$ elements above the main diagonal.
+		
+		When the polynomial given by Equation (\ref{root_music_summation_simplified}) is zero, the spatial spectrum will be maximized. Therefore, we need to find the roots of the polynomial given by Equation (\ref{root_music_summation_simplified}). The roots inside the unit circle with magnitude closest to 1 are most of interest. 
+		
+		%The sum of the terms on the main diagonal will be weighted by $z^0$, the sum of the terms directly above the main diagonal will be weighted by $z^1$, and so on. The terms in the resulting polynomial will be weighted by powers of $z$ from $-(M-1)$ to $M-1$.
+		
+		%$C_ij$. jrh The terms on the main diagonal with all hav
+		%this is the point at which the algorithms begin to differ.The MUSIC spectrum is then given by Equation (\ref{music_spectrum}). The denominator of the spectrum can be written in the following form:
 		
 	%\begin{equation}
 	%	A = \begin{bmatrix}
