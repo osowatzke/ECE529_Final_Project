@@ -132,6 +132,7 @@ osowatzke@arizona.edu}}
 		Using the estimated number of sources $\hat{D}$, the number of noise eigenvalues/eigenvectors is approximately $\hat{N} = M - \hat{D}$. Let $E_n = \{e_0,...,e_{N-1}\}$ be the MxN noise subspace. Then, the music spectrum is given in \cite{doa_algorithms_raghu} as
 	%
 	\begin{equation}
+		\label{music_spectrum}
 		\hat{P}_{music}(\theta) = \frac{1}{a^H(\theta)E_n{E_n}^Ha(\theta)}
 	\end{equation}
 	
@@ -168,7 +169,7 @@ osowatzke@arizona.edu}}
 			\hat{R} = \hat{R}_{xx} + \hat{R}_{yy}
 		\end{equation} 
 		
-		 
+			Following the MUSIC algorithm with $\hat{R}$ in place of $\hat{R}_{xx}$, a spatial spectrum can be derived for the Improved-MUSIC algorithm. The spatial spectrum can then be searched for peaks. The angles corresponding to these peaks are the directions of arrival for each source.
 	%\begin{equation}
 	%	A = \begin{bmatrix}
 	%		1 & 1 & \cdots & 1\\
