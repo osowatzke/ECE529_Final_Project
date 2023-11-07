@@ -185,14 +185,14 @@ osowatzke@arizona.edu}}
 		%
 		where $z = e^{-j{\beta}\sin{\theta}}$ and each $c_{ij}$ term is an element of the matrix $C = E_{n}{E_{n}}^H$.
 		
-		After performing matrix multiplication, the resulting polynomial will include powers of $z$ from $-M+1$ to $M-1$.
+		After performing matrix multiplication, the resulting polynomial can be expressed in the following form:
 		%
 		\begin{equation}
 			\label{root_music_summation}
 			\sum_{i=1}^{M}{\sum_{j=1}^{M}{C_{ij}z^{-i+j}}}
 		\end{equation}
 		%
-		Equation (\ref{root_music_summation}) can be further simplified to the form given in \cite{doa_algorithms_raghu}
+		Grouping like terms, Equation (\ref{root_music_summation}) can be further simplified to the form given in \cite{doa_algorithms_raghu}
 		%
 		\begin{equation}
 			\label{root_music_summation_simplified}
@@ -201,8 +201,17 @@ osowatzke@arizona.edu}}
 		%
 		where $c_i$ is the sum of the diagonal $i$ elements above the main diagonal.
 		
-		When the polynomial given by Equation (\ref{root_music_summation_simplified}) is zero, the spatial spectrum will be maximized. Therefore, we need to find the roots of the polynomial given by Equation (\ref{root_music_summation_simplified}). The roots inside the unit circle with magnitude closest to 1 are most of interest. 
+		Equation (\ref{root_music_summation_simplified}) can be multiplied by $z^{M-1}$ to get a polynomial with only positive powers of $z$. Then, the $2(M-1)$ roots of the polynomial can be found. $M - 1$ of these roots lie inside the the unit circle. Of these roots, the $\hat{D}$ closest to the unit circle correspond to signal roots \cite{root_music_eskandari}. The direction of arrivals for each source is then given by \cite{doa_algorithms_raghu} as 
+		%
+		\begin{equation}
+			\theta_i = -\sin^{-1}\left[\frac{\lambda}{2{\pi}d}\text{arg}(z_i)\right]
+		\end{equation}
+		%
+		where $z_i$ is one of the roots near the unit circle.
 		
+	\subsection{ESPRIT}
+		
+		% angles corresponding of each signal root can be found by using the
 		%The sum of the terms on the main diagonal will be weighted by $z^0$, the sum of the terms directly above the main diagonal will be weighted by $z^1$, and so on. The terms in the resulting polynomial will be weighted by powers of $z$ from $-(M-1)$ to $M-1$.
 		
 		%$C_ij$. jrh The terms on the main diagonal with all hav
