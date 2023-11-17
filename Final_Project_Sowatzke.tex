@@ -218,11 +218,28 @@ osowatzke@arizona.edu}}
 		\begin{figure}[H]
 			\centerline{\includegraphics[width=0.5\textwidth]{esprit_doublets.png}}
 			\caption{Antenna Array Divided into Two Subarrays \cite{doa_algorithms_raghu}}
+			\label{esprit_subarrays}
 		\end{figure}
 		
 		To perform the ESPRIT algorithm, capture $K$ samples of the received signal and estimate the spatial auto-correlation matrix using equation (\ref{spatial_matrix_estimate}). Then, perform an eigenvalue decomposition of the spatial auto-correlation matrix using equation (\ref{eigenvalue_decomposition_of_Rxx}). The output of the eigenvector decomposition will be an MxM diagonal matrix $\Lambda = \text{diag}\{\lambda_0, ..., \lambda_{M-1}\}$ and an MxM eigenvector matrix $E = \begin{bmatrix}e_0 & \cdots & e_{M-1}\end{bmatrix}$. 
 		
-		Next, estimate the number of sources $D$ using either equation (\ref{AIC_num_sources}) or equation (\ref{MDL_num_sources}). If the eigenvalues are sorted in descending order $\lambda_0 > \lambda_1 > \cdots > \lambda_{M-1}$, then the $D$ largest eigenvalues and their respective eigenvectors ($e_0, e_1, ..., e_{D-1}$) correspond to sources. These eigenvectors can be grouped into an MxD matrix $E_s = \begin{bmatrix} e_0 & \cdots e_{D-1} \end{bmatrix}$
+		Next, estimate the number of sources $D$ using either equation (\ref{AIC_num_sources}) or equation (\ref{MDL_num_sources}). If the eigenvalues are sorted in descending order $\lambda_0 > \lambda_1 > \cdots > \lambda_{M-1}$, then the $D$ largest eigenvalues and their respective eigenvectors ($e_0, e_1, ..., e_{D-1}$) correspond to sources. These eigenvectors can be grouped into an MxD matrix $E_s = \begin{bmatrix} e_0 & \cdots e_{D-1} \end{bmatrix}$.
+		
+		$E_s$ can be further split into two submatrices $E_{s1}$ and $E_{s2}$ following to the array division shown in Fig. \ref{esprit_subarrays}. Specifically, $E_{s1}$ is the first $M-1$ rows of $E_s$, and $E_{s2}$ is the last $M-1$ rows of $E_s$. Next, compute the eigenvalue decomposition of the following combination of $E_{s1}$ and $E_{s2}$:
+		
+		\begin{equation}
+			\begin{bmatrix}
+				E_{s1}^H\\[6pt]
+				E_{s2}^H
+			\end{bmatrix}
+			\begin{bmatrix}
+				E_{s1} & E_{s2}
+			\end{bmatrix}
+			= V{\Lambda}V^H
+		\end{equation}
+		
+		
+
 		% angles corresponding of each signal root can be found by using the
 		%The sum of the terms on the main diagonal will be weighted by $z^0$, the sum of the terms directly above the main diagonal will be weighted by $z^1$, and so on. The terms in the resulting polynomial will be weighted by powers of $z$ from $-(M-1)$ to $M-1$.
 		
