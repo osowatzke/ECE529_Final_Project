@@ -218,7 +218,7 @@ osowatzke@arizona.edu}}
 			\caption{Antenna Array Divided into Two Subarrays \cite{doa_algorithms_raghu}}
 		\end{figure}
 		
-		To perform the ESPRIT algorithm, capture $K$ samples of the received signal and estimate the spatial auto-correlation matrix using equation (\ref{spatial_matrix_estimate}). Then, perform an eigenvalue decomposition of the spatial auto-correlation matrix according to equation (\ref{eigenvalue_decomposition_of_Rxx}).
+		To perform the ESPRIT algorithm, capture $K$ samples of the received signal and estimate the spatial auto-correlation matrix using equation (\ref{spatial_matrix_estimate}). Then, perform an eigenvalue decomposition of the spatial auto-correlation matrix using equation (\ref{eigenvalue_decomposition_of_Rxx}). Next, estimate the number of sources $D$. If the eigenvalues are sorted in descending order $\lambda_0 > \lambda_1 > \cdots > \lambda_{M-1}$, then the $D$ largest eigenvalues and their respesctive eigenvectors ($e_0, e_1, ..., e_{D-1}$) correspond to the sources.
 		
 		% angles corresponding of each signal root can be found by using the
 		%The sum of the terms on the main diagonal will be weighted by $z^0$, the sum of the terms directly above the main diagonal will be weighted by $z^1$, and so on. The terms in the resulting polynomial will be weighted by powers of $z$ from $-(M-1)$ to $M-1$.
