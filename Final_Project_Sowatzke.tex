@@ -247,6 +247,19 @@ osowatzke@arizona.edu}}
 			\end{bmatrix}
 		\end{equation*}
 
+		The rotational operator is then defined in \cite{root_music_esprit_patwari} as
+		
+		\begin{equation*}
+			\psi = -V_{12}V_{22}^{-1}
+		\end{equation*}
+		
+		If the eigenvalues of $\psi$ are defined as $\hat{\phi}_k$ for $k = 1,2,...,D$, then the directions of arrival are given in \cite{doa_algorithms_raghu} as:
+		
+		\begin{equation}
+			\hat{\theta}_k = -\sin^{-1}{\left[\frac{\text{arg}(\hat{\phi}_k)}{{\beta}d}\right]}
+		\end{equation}
+		
+		Similar to the root music algorithm, the ESPRIT algorithm directly produces directions of arrival without requiring the user to search through a spatial spectrum.
 		% angles corresponding of each signal root can be found by using the
 		%The sum of the terms on the main diagonal will be weighted by $z^0$, the sum of the terms directly above the main diagonal will be weighted by $z^1$, and so on. The terms in the resulting polynomial will be weighted by powers of $z$ from $-(M-1)$ to $M-1$.
 		
