@@ -1,31 +1,19 @@
-classdef improved_music_doa_estimator < key_value_constructor
+classdef improved_music_doa_estimator < doa_estimator
 
-    properties
-
-        % Element spacing in the uniform linear array
-        % expressed in terms of lambda
-        element_spacing;
-
-        % Look angle in degrees 
-        look_angle;
-
-        % Number of sources
-        num_sources;
-    end
-
+    % Public class methods
     methods
 
         % Function creates the spatial spectrum using beamforming
-        function P = create_spatial_spectrum(self, rx_data)
+        function [P, theta] = create_spatial_spectrum(self, rx_data)
+
+            % Function estimates the auto-correlation matrix
+            Rxx = self.compute_corr(rx_data);
 
             % compute the number of elements in uniform linear array
             num_elements = size(rx_data,1);
 
             % compute the number of received samples
             num_samples = size(rx_data,2);
-
-            % Function estimates the auto-correlation matrix
-            Rxx = 1/num_samples*(rx_data*rx_data');
 
             % Compute the transormation matrix
             J = flip(eye(num_elements));
@@ -61,6 +49,9 @@ classdef improved_music_doa_estimator < key_value_constructor
             for i = 1:length(look_angle_rad)
                 P(i) = 1/(A(:,i)'*(En*En')*A(:,i));
             end
+
+            % Estimate source angles from spatial spectrum
+            theta = self.estimate_doa(P);
         end
     end
 end

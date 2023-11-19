@@ -1,25 +1,13 @@
-classdef espirit_doa_estimator < key_value_constructor
+classdef espirit_doa_estimator < doa_estimator
 
-    properties
-
-        % Element spacing in the uniform linear array
-        % expressed in terms of lambda
-        element_spacing;
-
-        % Number of sources
-        num_sources;
-    end
-
+    % Public class methods
     methods
 
         % Function creates the spatial spectrum using beamforming
         function theta = compute_source_angles(self, rx_data)
 
-            % compute the number of received samples
-            num_samples = size(rx_data,2);
-
             % Function estimates the auto-correlation matrix
-            Rxx = 1/num_samples*(rx_data*rx_data');
+            Rxx = self.compute_corr(rx_data);
 
             % Compute the eigenvectors of the matrix
             [Es,~] = eig(Rxx);

@@ -1,31 +1,19 @@
-classdef capon_doa_estimator < key_value_constructor
+classdef capon_doa_estimator < doa_estimator
 
-    properties
-
-        % Element spacing in the uniform linear array
-        % expreseed in terms of lambda
-        element_spacing;
-
-        % Look angle in degrees 
-        look_angle;
-    end
-
+    % Public class methods
     methods
 
         % Function creates the spatial spectrum using beamforming
-        function P = create_spatial_spectrum(self, rx_data)
-
-            % compute the number of elements in uniform linear array
-            num_elements = size(rx_data,1);
-
-            % compute the number of received samples
-            num_samples = size(rx_data,2);
+        function [P, theta] = create_spatial_spectrum(self, rx_data)
 
             % Function estimates the auto-correlation matrix
-            Rxx = 1/num_samples*(rx_data*rx_data');
+            Rxx = self.compute_corr(rx_data);
 
             % Convert the look angle to radians
             look_angle_rad = (self.look_angle(:).')*pi/180;
+
+            % compute the number of elements in uniform linear array
+            num_elements = size(rx_data,1);
 
             % Create a (num_elements x num_angles) matrix for steering the
             % beam to each of the look angles
@@ -40,8 +28,11 @@ classdef capon_doa_estimator < key_value_constructor
 
             % Compute the spatial spectrum output for each look angle
             for i = 1:length(look_angle_rad)
-                P(i) = 1/(A(:,i)'*Rxx_inv*A(:,i));
+                P(i) = 1/(A(:,i)'*Rxx_inv*A(:,i)); %#ok
             end
+
+            % Estimate source angles from spatial spectrum
+            theta = self.estimate_doa(P);
         end
     end
 end

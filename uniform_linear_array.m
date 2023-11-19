@@ -8,7 +8,7 @@ classdef uniform_linear_array < key_value_constructor
 
     properties
 
-        % Num of samples to generate
+        % Number of samples to generate
         num_samples;
 
         % Number of elements in the uniform linear array
