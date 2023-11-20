@@ -4,7 +4,7 @@ classdef improved_music_doa_estimator < doa_estimator
     methods
 
         % Function creates the spatial spectrum using beamforming
-        function [P, theta] = create_spatial_spectrum(self, rx_data)
+        function P = create_spatial_spectrum(self, rx_data)
 
             % Function estimates the auto-correlation matrix
             Rxx = self.compute_corr(rx_data);
@@ -29,10 +29,14 @@ classdef improved_music_doa_estimator < doa_estimator
             R = Rxx + Ryy;
 
             % Compute the eigenvalues of the matrix
-            [V,~] = eig(R);
+            [V,D] = eig(R);
+
+            % Use the user-provided number of sources
+            % or estimate with AIC or MDL
+            num_sources = self.get_num_sources(D,num_samples);
 
             % noise subspace eigenvector matrix
-            En = V(:,1:(end-self.num_sources));
+            En = V(:,1:(end-num_sources));
 
             % Convert the look angle to radians
             look_angle_rad = (self.look_angle(:).')*pi/180;
@@ -49,9 +53,6 @@ classdef improved_music_doa_estimator < doa_estimator
             for i = 1:length(look_angle_rad)
                 P(i) = 1/(A(:,i)'*(En*En')*A(:,i));
             end
-
-            % Estimate source angles from spatial spectrum
-            theta = self.estimate_doa(P);
         end
     end
 end

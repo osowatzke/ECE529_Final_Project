@@ -18,6 +18,9 @@ classdef doa_estimator < key_value_constructor
 
         % Number of sources
         num_sources;
+
+        % Number of sources method
+        num_sources_method = 'AIC';
     end
 
     % Protected class methods
@@ -34,23 +37,35 @@ classdef doa_estimator < key_value_constructor
             Rxx = 1/num_samples*(rx_data*rx_data');
         end
 
-        % Function estimates directions of arrival from an input spatial
-        % spectrum. It sorts local maximums of the spatial spectrum and
-        % outputs the angles corrsponding to largest local maximums
-        function source_angles = estimate_doa(self, P)
+        % Function determines the number of sources if not specified
+        function num_sources = get_num_sources(self, lambda, K)
 
-            % Find the index of local maxima
-            I = (abs(P) > [abs(P(2:end)); 0]) | ...
-                (abs(P) > [0; P(1:(end-1))]);
+            % If the eigenvalues are passed as diagonal matrix
+            if size(lambda,1) > 1 && size(lambda,2) > 1
+                lambda = diag(lambda);
+            end
 
-            % Compute the look angles corresponding to each local maxima
-            max_angles = self.look_angle(I);
+            % Sort the eigenvalues in descending order
+            lambda = sort(lambda,'descend');
 
-            % Sort the local maxima
-            [~, J] = sort(abs(P(I)));
+            % If number of sources is unspecified,
+            % compute the number of sources
+            if isempty(self.num_sources)
 
-            % Return the location of each source
-            source_angles = max_angles(J(1:self.num_sources));
+                % Use AIC to estimate the number of sources
+                if strcmpi(self.num_sources_method,'AIC')
+                    num_sources = aic_num_sources(lambda, K);
+
+
+                % Use MDL to estimate the number of sources
+                else
+                    num_sources = mdl_num_sources(lambda, K);
+                end
+
+            % Use a user-provided number of sources
+            else
+                num_sources = self.num_sources;
+            end
         end
     end
 end

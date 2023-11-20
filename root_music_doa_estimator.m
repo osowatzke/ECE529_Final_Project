@@ -6,14 +6,21 @@ classdef root_music_doa_estimator < doa_estimator
         % Function creates the spatial spectrum using beamforming
         function theta = compute_source_angles(self, rx_data)
 
+            % Get the number of input samples
+            num_samples = size(rx_data,2);
+
             % Function estimates the auto-correlation matrix
             Rxx = self.compute_corr(rx_data);
 
             % Compute the eigenvalues of the matrix
-            [V,~] = eig(Rxx);
+            [V,D] = eig(Rxx);
+
+            % Use the user-provided number of sources
+            % or estimate with AIC or MDL
+            num_sources = self.get_num_sources(D,num_samples);
 
             % noise subspace eigenvector matrix
-            En = V(:,1:(end-self.num_sources));
+            En = V(:,1:(end-num_sources));
 
             % Compute C
             C = En*En';

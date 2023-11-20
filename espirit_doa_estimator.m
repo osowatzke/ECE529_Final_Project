@@ -6,14 +6,21 @@ classdef espirit_doa_estimator < doa_estimator
         % Function creates the spatial spectrum using beamforming
         function theta = compute_source_angles(self, rx_data)
 
+            % Get the number of input samples
+            num_samples = size(rx_data,2);
+
             % Function estimates the auto-correlation matrix
             Rxx = self.compute_corr(rx_data);
 
             % Compute the eigenvectors of the matrix
-            [Es,~] = eig(Rxx);
+            [Es,D] = eig(Rxx);
+
+            % Use the user-provided number of sources
+            % or estimate with AIC or MDL
+            num_sources = self.get_num_sources(D,num_samples);
 
             % Extract signal eigenvectors
-            Es = Es(:,(end-self.num_sources+1):end);
+            Es = Es(:,(end-num_sources+1):end);
 
             % Decompose E into Es1 and Es2
             Es1 = Es(1:(end-1),:);

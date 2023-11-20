@@ -4,7 +4,7 @@ classdef capon_doa_estimator < doa_estimator
     methods
 
         % Function creates the spatial spectrum using beamforming
-        function [P, theta] = create_spatial_spectrum(self, rx_data)
+        function P = create_spatial_spectrum(self, rx_data)
 
             % Function estimates the auto-correlation matrix
             Rxx = self.compute_corr(rx_data);
@@ -30,9 +30,6 @@ classdef capon_doa_estimator < doa_estimator
             for i = 1:length(look_angle_rad)
                 P(i) = 1/(A(:,i)'*Rxx_inv*A(:,i)); %#ok
             end
-
-            % Estimate source angles from spatial spectrum
-            theta = self.estimate_doa(P);
         end
     end
 end
