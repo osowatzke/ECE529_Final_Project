@@ -263,8 +263,9 @@ osowatzke@arizona.edu}}
 		
 	\section{Simulation}
 	
-		The performance of each of the above direction of arrival algorithms will be evaluated in simulation. A uniform linear array model will be used to generate data samples for each direction of arrival algorithm. This model will take the number of samples ($K$), the number of antenna elements ($M$), and the antenna element spacing ($d$) as arguments. Each of the source signals will be a complex exponential at user-configurable frequencies, directions of arrival, and signal to noise ratio (SNR).
+		The performance of each of the above direction of arrival algorithms will be evaluated in simulation. A uniform linear array model will be used to generate data samples for each direction of arrival algorithm. This model will take the number of samples ($K$), the number of antenna elements ($M$), and the antenna element spacing ($d$) as arguments. Each of the source signals will be a complex exponential at user-configurable frequencies, directions of arrival, and signal to noise ratios.
 		
+		After generating the received signal, it will be input into each of the direction of arrival algorithms. The direction of arrival algorithms will then output either a spatial spectrum or an angle estimate. These outputs will be graphed on the same axes to provide a basis for comparing algorithms. Angle estimates not directly output by an algorithms will be measured by finding peaks in the spatial spectrum. 
 		% Following Equation (\ref{received_signal}), the received signal will be a sum of each source signals and complex gaussian noise. The noise will be unit power and each source signal will be scaled to provide a user-configured SNR. received signal will be the sum of complex gaussian noise and and Each of the received signals will be a complex exponential tuned at a user-specified frequency received at a user-specified angle.
 		
 		% The uniform will contain is model will be representative of a uniform linear array with $M$ elements
