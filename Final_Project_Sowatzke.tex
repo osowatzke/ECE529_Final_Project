@@ -268,9 +268,53 @@ osowatzke@arizona.edu}}
 		After the received signal is generated, it will be input into each of the direction of arrival algorithms. The direction of arrival algorithms will then output either a spatial spectrum or an angle estimate. These outputs will be graphed on the same axes to provide a basis for comparing algorithms. Angle estimates not directly output by an algorithms will be measured by finding peaks in the spatial spectrum. A block diagram of the simulation workflow is shown in Figure \ref{sim_workflow}.
 		
 		\begin{figure}[H]
-			\centerline{\includegraphics[width=0.5\textwidth]{program_flow.png}}
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{program_flow.png}}}
 			\caption{Simulation Workflow}
 			\label{sim_workflow}
+		\end{figure}
+		
+		Specific system parameters that I will vary include the number of elements in the uniform linear array, the spacing of elements in the uniform linear array, and the number of correlation samples. I will also vary the input data by adjusting the signal to noise ratio, the number of sources, the angle separation between sources, and the correlation between source signals.
+		
+	\section{Results}
+	
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_4_antenna_elements.png}}}
+			\caption{Spatial Spectrum with M=4}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_27_antenna_elements.png}}}
+			\caption{Spatial Spectrum with M=27}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_5_samples.png}}}
+			\caption{Spatial Spectrum with K=5}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_100_samples.png}}}
+			\caption{Spatial Spectrum with K=100}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_minus_10db.png}}}
+			\caption{Spatial Spectrum with -10dB SNR Source Signals}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_30db.png}}}
+			\caption{Spatial Spectrum with 30dB SNR Source Signals}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_closely_spaced_sources.png}}}
+			\caption{Spatial Spectrum for Closely Spaced Sources}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_correlated_sources.png}}}
+			\caption{Spatial Spectrum for Correlated Sources}
 		\end{figure}
 		% Following Equation (\ref{received_signal}), the received signal will be a sum of each source signals and complex gaussian noise. The noise will be unit power and each source signal will be scaled to provide a user-configured SNR. received signal will be the sum of complex gaussian noise and and Each of the received signals will be a complex exponential tuned at a user-specified frequency received at a user-specified angle.
 		

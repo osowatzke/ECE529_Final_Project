@@ -256,7 +256,7 @@ classdef doa_estimation < key_value_constructor
             plotColor = colorOrder(colorOrderIndex,:);
             line((self.root_music_source_angles.').*ones(2,1),...
                 repmat(ylim.',1,length(self.root_music_source_angles)),...
-                'Color',plotColor,'LineWidth',1.5);
+                'Color',plotColor,'LineWidth',1.5,'Marker','o');
             set(gca,'ColorOrderIndex',colorOrderIndex+1);
             
             % plot espirit angle estimates
