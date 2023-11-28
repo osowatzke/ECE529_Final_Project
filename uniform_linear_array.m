@@ -15,7 +15,7 @@ classdef uniform_linear_array < key_value_constructor
         num_elements;
 
         % Element spacing in the uniform linear array
-        % expreseed in terms of lambda
+        % expressed in terms of lambda
         element_spacing;
 
         % Angle of each source from boresight in degrees
