@@ -2,8 +2,22 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{multirow,tabularx}
+\usepackage{calc}
+%\usepackage
 %\usepackage{cite}
 
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\setlength\tabcolsep{3pt}
+\newlength{\colwidth}
+\setlength{\colwidth}{0.12\textwidth - 2\tabcolsep}
+%\renewcommand{\tabularxcolumn}[1]{m{#1}}
+%\newcolumntype{L}{>{\RaggedRight\arraybackslash}X}
+%\newcolumntype{C}[1]{>{\Centering\arraybackslash%
+%        \hsize=#1\hsize\linewidth=\hsize}X}
+        
 \begin{document}
 
 \title{Direction of Angle Estimation}
@@ -286,6 +300,21 @@ osowatzke@arizona.edu}}
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_27_antenna_elements.png}}}
 			\caption{Spatial Spectrum with M=27}
 		\end{figure}
+
+		%\begin{minipage}
+		\noindent
+		\footnotesize
+		%\setlength\tabcolsep{0pt}
+		%\ignorespaces
+		\begin{tabular}{|P{\colwidth}|P{\colwidth}|P{\colwidth}|P{\colwidth}|} %{0.48\textwidth}{|C{0.12\textwidth}|C{0.12\textwidth}|C{0.12\textwidth}|C{0.12\textwidth}|}
+			\hline
+			\multirow{3}{\colwidth}{\centering\textbf{DOA Algorithms}} & \multicolumn{3}{c|}{\textbf{Direction of Arrival (in degrees)}}\\
+			\cline{2-4}
+			& \multirow{2}{\colwidth}{\centering\textbf{Actual DOA}} & \multirow{2}{\colwidth}{\centering\textbf{Estimated DOA for M=4} }& \multirow{2}{\colwidth}{\centering\textbf{Estimated DOA for M=27}} \\
+			& & & \\
+			\hline
+		\end{tabular}
+		%\end{minipage}
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_5_samples.png}}}
