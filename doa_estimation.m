@@ -4,7 +4,7 @@ classdef doa_estimation < key_value_constructor
     properties
 
         % Random number generate seed
-        seed = 529;
+        seed = 0;
         
         % Figure number for spatial spectrum
         fig_num = 1;
@@ -26,7 +26,7 @@ classdef doa_estimation < key_value_constructor
         source_freq = [pi/3, pi/5, pi/7];
 
         % SNR of each source signal in dB
-        source_snr = 20*log10(100/3)*ones(1,3);
+        source_snr = 30*ones(1,3);
 
         % Look angles for spatial spectrums in degrees
         look_angle = -90:1:90;
