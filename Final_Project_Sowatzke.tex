@@ -295,14 +295,18 @@ osowatzke@arizona.edu}}
 		
 	\section{Results}
 	
+		The first performance comparison examines the impact of the number of antenna elements ($M$) on the spatial spectrum. Two cases were run using $M = 4$ and $M=27$, while holding the remaining parameters constant. The remaining parameters included the antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_m}.
+		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_4_antenna_elements.png}}}
-			\caption{Spatial Spectrum with M=4}
+			\caption{Spatial Spectrum with M=4}			
+			\label{fig::spatial_spectrum_m4}
 		\end{figure}
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_27_antenna_elements.png}}}
 			\caption{Spatial Spectrum with M=27}
+			\label{fig::spatial_spectrum_m27}
 		\end{figure}
 
 		\begin{table}[H]
@@ -351,8 +355,11 @@ osowatzke@arizona.edu}}
 			\cline{2-4}
 			& $50^{\circ}$ & $50.0782^{\circ}$ & $50.0060^{\circ}$\\
 			\hline
-		\end{tabular}
+		\end{tabular}		
+		\label{table::doa_varying_m}
 		\end{table}
+		
+		Comparing Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27} along with the angle estimates given in Table \ref{table::doa_varying_m}, algorithm performance degrades as the number of antenna elements is decreased. The beamforming alogorithm appears most sensitive to the number of antenna elements. The sidelobes in the beamforming spatial spectrum occur less frequently for the $M=4$ case, but are of much higher in amplitude. This can result in lower power targets being obscured in the spatial spectrum. The Capon spatial spectrum appears moderately affected by the number of antenna elements. The spatial spectrum floor is approximately $15\text{dB}$ higher for the $M=4$ case than the $M=27$ case. The performance of the remaining algorithms appear to only marginally degraded as the number of antenna elements decreases.
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_5_samples.png}}}
