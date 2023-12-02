@@ -432,11 +432,13 @@ osowatzke@arizona.edu}}
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_minus_10db.png}}}
 			\caption{Spatial Spectrum with -10dB SNR Source Signals}
+			\label{fig::spatial_spectrum_snr_minus_10db}
 		\end{figure}
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_30db.png}}}
 			\caption{Spatial Spectrum with 30dB SNR Source Signals}
+			\label{fig::spatial_spectrum_snr_30db}
 		\end{figure}
 		
 		\begin{table}[H]
@@ -486,7 +488,10 @@ osowatzke@arizona.edu}}
 			& $50^{\circ}$ & $48.0052^{\circ}$ & $50.0091^{\circ}$\\
 			\hline
 		\end{tabular}
+		\label{table::doa_varying_snr}
 		\end{table}
+		
+		Comparing Fig. \ref{fig::spatial_spectrum_snr_minus_10db} to Fig. \ref{fig::spatial_spectrum_snr_30db}, the performance impacts of SNR can be seen. Reduced SNR leads to greater angle errors in each of the estimated directions of arrival. Reduced SNR also degrades the sharpness of the spatial spectrums peaks, reducing spatial resolution. Furthermore, reduced SNR increases the floors of the spatial spectrums making it more difficult to detect lower power source signals.
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_closely_spaced_sources.png}}}
