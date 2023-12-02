@@ -498,7 +498,10 @@ osowatzke@arizona.edu}}
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_closely_spaced_sources.png}}}
 			\caption{Spatial Spectrum for Closely Spaced Sources}
+			\label{fig::closely_spaced_sources}
 		\end{figure}
+		
+		Examining Fig. \ref{fig::closely_spaced_sources}, the mainlobes of the beamforming spatial spectrum have merged into a single large mainlobe. This can result in only one source being detected when there are in fact 3. The peaks corresponding to each source in the remaining spectrums are preserved. However, the nulls between sources are not nearly as deep as they were for sources that were spaced further apart. This can result in missed detections of lower power sources between the spectrum peaks. The MUSIC, Improved-MUSIC, Root-MUSIC spectrum, and ESPRIT direction of arrival algorithms are classified as high resolution \cite{root_music_esprit_patwari}. This means that closely spaced targets are better resolved as illustrated in Fig. \ref{fig::closely_spaced_sources}.
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_correlated_sources.png}}}
