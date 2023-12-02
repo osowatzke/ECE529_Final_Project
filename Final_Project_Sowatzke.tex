@@ -305,7 +305,8 @@ osowatzke@arizona.edu}}
 			\caption{Spatial Spectrum with M=27}
 		\end{figure}
 
-		\noindent
+		\begin{table}[H]
+		\caption{DOA Algorithm Performance for M=4 and M=27}
 		\footnotesize
 		\begin{tabular}{|P{\colwidth}|P{\colwidth}|P{\colwidth}|P{\colwidth}|}
 			\hline
@@ -351,6 +352,7 @@ osowatzke@arizona.edu}}
 			& $50^{\circ}$ & $50.0782^{\circ}$ & $50.0060^{\circ}$\\
 			\hline
 		\end{tabular}
+		\end{table}
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_5_samples.png}}}
@@ -362,7 +364,8 @@ osowatzke@arizona.edu}}
 			\caption{Spatial Spectrum with K=100}
 		\end{figure}
 		
-		\noindent
+		\begin{table}[H]
+		\caption{DOA Algorithm Performance for K=5 and K=100}
 		\footnotesize
 		\begin{tabular}{|P{\colwidth}|P{\colwidth}|P{\colwidth}|P{\colwidth}|}
 			\hline
@@ -408,6 +411,7 @@ osowatzke@arizona.edu}}
 			& $50^{\circ}$ & $50.9027^{\circ}$ & $50.0091^{\circ}$\\
 			\hline
 		\end{tabular}
+		\end{table}
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_minus_10db.png}}}
@@ -419,7 +423,8 @@ osowatzke@arizona.edu}}
 			\caption{Spatial Spectrum with 30dB SNR Source Signals}
 		\end{figure}
 		
-		\noindent
+		\begin{table}[H]
+		\caption{DOA Algorithm Performance for SNR=-10dB and SNR=30dB}
 		\footnotesize
 		\begin{tabular}{|P{\colwidth}|P{\colwidth}|P{\colwidth}|P{\colwidth}|}
 			\hline
@@ -465,6 +470,7 @@ osowatzke@arizona.edu}}
 			& $50^{\circ}$ & $48.0052^{\circ}$ & $50.0091^{\circ}$\\
 			\hline
 		\end{tabular}
+		\end{table}
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_closely_spaced_sources.png}}}
@@ -476,7 +482,8 @@ osowatzke@arizona.edu}}
 			\caption{Spatial Spectrum for Correlated Sources}
 		\end{figure}
 		
-		\noindent
+		\begin{table}[H]
+		\caption{DOA Algorithm Performance for Correlated Signals}
 		\footnotesize
 		\begin{tabular}{|P{\colwidthC}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|}
 			\hline
@@ -495,6 +502,7 @@ osowatzke@arizona.edu}}
 			& & & & & & \\
 			\hline
 		\end{tabular}
+		\end{table}
 		% Following Equation (\ref{received_signal}), the received signal will be a sum of each source signals and complex gaussian noise. The noise will be unit power and each source signal will be scaled to provide a user-configured SNR. received signal will be the sum of complex gaussian noise and and Each of the received signals will be a complex exponential tuned at a user-specified frequency received at a user-specified angle.
 		
 		% The uniform will contain is model will be representative of a uniform linear array with $M$ elements
