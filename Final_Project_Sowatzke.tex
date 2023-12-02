@@ -425,6 +425,8 @@ osowatzke@arizona.edu}}
 		\label{table::doa_varying_k}
 		\end{table}
 		
+		The angle estimates of all algorithms degrade with few correlation samples. The capon spatial spectrum includes spurious peaks which can result in faulty angles estimates. The floor of the MUSIC spectrum also increased in response to fewer correlation samples. This increased floor, could make detection of lower power sources more challenging. Although not as severe as the MUSIC spectrum, the floor of the Improved-MUSIC spectrum also increased when the number of correlation samples was decreased.
+		 		 
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_minus_10db.png}}}
 			\caption{Spatial Spectrum with -10dB SNR Source Signals}
