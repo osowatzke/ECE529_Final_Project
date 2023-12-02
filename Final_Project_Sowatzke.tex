@@ -503,9 +503,12 @@ osowatzke@arizona.edu}}
 		
 		Examining Fig. \ref{fig::closely_spaced_sources}, the mainlobes of the beamforming spatial spectrum have merged into a single large mainlobe. This can result in only one source being detected when there are in fact 3. The peaks corresponding to each source in the remaining spectrums are preserved. However, the nulls between sources are not nearly as deep as they were for sources that were spaced further apart. This can result in missed detections of lower power sources between the spectrum peaks. The MUSIC, Improved-MUSIC, Root-MUSIC spectrum, and ESPRIT direction of arrival algorithms are classified as high resolution \cite{root_music_esprit_patwari}. This means that closely spaced targets are better resolved as illustrated in Fig. \ref{fig::closely_spaced_sources}.
 		
+		Finally, the last case that will be examined is correlated signals. For this case, the simulation will be configured with number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles = $\{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/3, \pi/7\}$. Setting two of the source frequencies the same should result in two of the signals being correlated. 
+		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_correlated_sources.png}}}
 			\caption{Spatial Spectrum for Correlated Sources}
+			\label{fig::correlated_signals}
 		\end{figure}
 		
 		\begin{table}[H]
@@ -528,6 +531,7 @@ osowatzke@arizona.edu}}
 			& & & & & & \\
 			\hline
 		\end{tabular}
+		\label{table::correlated_signals}
 		\end{table}
 		% Following Equation (\ref{received_signal}), the received signal will be a sum of each source signals and complex gaussian noise. The noise will be unit power and each source signal will be scaled to provide a user-configured SNR. received signal will be the sum of complex gaussian noise and and Each of the received signals will be a complex exponential tuned at a user-specified frequency received at a user-specified angle.
 		
