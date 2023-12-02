@@ -295,7 +295,7 @@ osowatzke@arizona.edu}}
 		
 	\section{Results}
 	
-		The first performance comparison examines the impact of the number of antenna elements ($M$) on the spatial spectrum. Two cases were run using $M = 4$ and $M=27$, while holding the remaining parameters constant. The remaining parameters included the antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_m}.
+		The first performance comparison examines the impact of the number of antenna elements ($M$) on algorithm performance. Two cases were run using $M = 4$ and $M=27$, while holding the remaining parameters constant. The remaining parameters included the antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_m}.
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_4_antenna_elements.png}}}
@@ -361,14 +361,18 @@ osowatzke@arizona.edu}}
 		
 		Comparing Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27} along with the angle estimates given in Table \ref{table::doa_varying_m}, algorithm performance degrades as the number of antenna elements is decreased. The beamforming alogorithm appears most sensitive to the number of antenna elements. The sidelobes in the beamforming spatial spectrum occur less frequently for the $M=4$ case, but are of much higher in amplitude. This can result in lower power targets being obscured in the spatial spectrum. The Capon spatial spectrum appears moderately affected by the number of antenna elements. The spatial spectrum floor is approximately $15\text{dB}$ higher for the $M=4$ case than the $M=27$ case. The performance of the remaining algorithms appear to only marginally degraded as the number of antenna elements decreases.
 		
+		The next performance comparison examines the effects of the number of correlation samples ($K$) on algorithm performance. Two cases were run using $K=5$ and $K=100$, while holding the remaining parameters constant. The remaining parameters included number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_k5} and Fig. \ref{fig::spatial_spectrum_k100}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_k}.
+		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_5_samples.png}}}
 			\caption{Spatial Spectrum with K=5}
+			\label{fig::spatial_spectrum_k5}
 		\end{figure}
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_100_samples.png}}}
 			\caption{Spatial Spectrum with K=100}
+			\label{fig::spatial_spectrum_k100}
 		\end{figure}
 		
 		\begin{table}[H]
@@ -418,6 +422,7 @@ osowatzke@arizona.edu}}
 			& $50^{\circ}$ & $50.9027^{\circ}$ & $50.0091^{\circ}$\\
 			\hline
 		\end{tabular}
+		\label{table::doa_varying_k}
 		\end{table}
 		
 		\begin{figure}[H]
