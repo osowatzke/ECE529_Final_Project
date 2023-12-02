@@ -427,6 +427,8 @@ osowatzke@arizona.edu}}
 		
 		The angle estimates of all algorithms degrade with few correlation samples. The capon spatial spectrum includes spurious peaks which can result in faulty angles estimates. The floor of the MUSIC spectrum also increased in response to fewer correlation samples. This increased floor, could make detection of lower power sources more challenging. Although not as severe as the MUSIC spectrum, the floor of the Improved-MUSIC spectrum also increased when the number of correlation samples was decreased.
 		 		 
+		The next performance comparison will be done by varying the SNR of the source signals while holding the remaining parameters constant. This will done using two tests, one which fixes the SNR of each source at $-10\text{dB}$ and the other which fixes the SNR of each source at $30 \text{dB}$. Other parameters that are held constant for each testcase include the number of antenna elements $M=10$, the antenna element spacing $d=\lambda/2$, the number of sources $D=3$, the number of correlation samples $K=100$, the source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and the source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$.
+		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_minus_10db.png}}}
 			\caption{Spatial Spectrum with -10dB SNR Source Signals}
