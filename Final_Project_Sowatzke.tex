@@ -322,21 +322,25 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		
 	\section{Results}
 	
-		The first performance comparison examines the impact of the number of antenna elements ($M$) on algorithm performance. Two cases were run using $M = 4$ and $M=27$, while holding the remaining parameters constant. The remaining parameters included the antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_m}.
+		The simulation results are given below. The goal of these simulations were to compare algorithm performance while varying simulation parameters such as the number of antenna elements, the number of correlation samples, the signal to noise ratio, the source spacing, and the correlation between source signals.
 		
-		\begin{figure}[H]
-			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_4_antenna_elements.png}}}
+		\subsection{Performance Impacts of Number of Antenna Elements}
+		
+		The first simulation examines the impact of the number of antenna elements ($M$) on algorithm performance. Two cases were run using $M = 4$ and $M=27$, while holding the remaining parameters constant. The remaining parameters included the antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_m}.
+		
+		\begin{figure}
+			\centerline{\fbox{\includegraphics[width=0.45\textwidth]{spatial_spectrum_4_antenna_elements.png}}}
 			\caption{Spatial Spectrum with M=4}			
 			\label{fig::spatial_spectrum_m4}
 		\end{figure}
 		
-		\begin{figure}[H]
-			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_27_antenna_elements.png}}}
+		\begin{figure}
+			\centerline{\fbox{\includegraphics[width=0.45\textwidth]{spatial_spectrum_27_antenna_elements.png}}}
 			\caption{Spatial Spectrum with M=27}
 			\label{fig::spatial_spectrum_m27}
 		\end{figure}
 
-		\begin{table}[H]
+		\begin{table}
 		\caption{DOA Algorithm Performance for M=4 and M=27}
 		\footnotesize
 		\begin{tabular}{|P{\colwidth}|P{\colwidth}|P{\colwidth}|P{\colwidth}|}
@@ -386,23 +390,25 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		\label{table::doa_varying_m}
 		\end{table}
 		
-		Comparing Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27} along with the angle estimates given in Table \ref{table::doa_varying_m}, algorithm performance degrades as the number of antenna elements is decreased. The beamforming alogorithm appears most sensitive to the number of antenna elements. The sidelobes in the beamforming spatial spectrum occur less frequently for the $M=4$ case, but are of much higher in amplitude. This can result in lower power targets being obscured in the spatial spectrum. The Capon spatial spectrum appears moderately affected by the number of antenna elements. The spatial spectrum floor is approximately $15\text{dB}$ higher for the $M=4$ case than the $M=27$ case. The performance of the remaining algorithms appear to only marginally degraded as the number of antenna elements decreases.
+		Comparing Fig. \ref{fig::spatial_spectrum_m4} and Fig. \ref{fig::spatial_spectrum_m27} along with the angle estimates given in Table \ref{table::doa_varying_m}, algorithm performance degrades as the number of antenna elements is decreased. The beamforming alogorithm appears most sensitive to the number of antenna elements. The sidelobes in the beamforming spatial spectrum occur less frequently for the $M=4$ case, but are of much higher in amplitude. This can result in lower power targets being obscured in the spatial spectrum. The Capon spatial spectrum appears moderately affected by the number of antenna elements. The spatial spectrum floor is approximately $15\text{dB}$ higher for the $M=4$ case than the $M=27$ case. The performance of the remaining algorithms appears to only marginally degraded as the number of antenna elements decreases.
 		
-		The next performance comparison examines the effects of the number of correlation samples ($K$) on algorithm performance. Two cases were run using $K=5$ and $K=100$, while holding the remaining parameters constant. The remaining parameters included number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_k5} and Fig. \ref{fig::spatial_spectrum_k100}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_k}.
+		\subsection{Performance Impacts of Number of Correlation Samples}
 		
-		\begin{figure}[H]
-			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_5_samples.png}}}
+		The next simulation examines the effects of the number of correlation samples ($K$) on algorithm performance. Two cases were run using $K=5$ and $K=100$, while holding the remaining parameters constant. The remaining parameters included number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$. The resulting spatial spectrums are shown in Fig. \ref{fig::spatial_spectrum_k5} and Fig. \ref{fig::spatial_spectrum_k100}, and the corresponding directions of arrival estimates are given in Table \ref{table::doa_varying_k}.
+		
+		\begin{figure}
+			\centerline{\fbox{\includegraphics[width=0.45\textwidth]{spatial_spectrum_5_samples.png}}}
 			\caption{Spatial Spectrum with K=5}
 			\label{fig::spatial_spectrum_k5}
 		\end{figure}
 		
-		\begin{figure}[H]
-			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_100_samples.png}}}
+		\begin{figure}
+			\centerline{\fbox{\includegraphics[width=0.45\textwidth]{spatial_spectrum_100_samples.png}}}
 			\caption{Spatial Spectrum with K=100}
 			\label{fig::spatial_spectrum_k100}
 		\end{figure}
 		
-		\begin{table}[H]
+		\begin{table}
 		\caption{DOA Algorithm Performance for K=5 and K=100}
 		\footnotesize
 		\begin{tabular}{|P{\colwidth}|P{\colwidth}|P{\colwidth}|P{\colwidth}|}
@@ -452,23 +458,25 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		\label{table::doa_varying_k}
 		\end{table}
 		
-		The angle estimates of all algorithms degrade with few correlation samples. The capon spatial spectrum includes spurious peaks which can result in faulty angles estimates. The floor of the MUSIC spectrum also increased in response to fewer correlation samples. This increased floor, could make detection of lower power sources more challenging. Although not as severe as the MUSIC spectrum, the floor of the Improved-MUSIC spectrum also increased when the number of correlation samples was decreased.
+		The angle estimates of all algorithms degrade with fewer correlation samples. The capon spatial spectrum includes spurious peaks which can result in faulty angles estimates. The floor of the MUSIC spectrum also increased in response to fewer correlation samples. This increased floor, could make detection of lower power sources more challenging. Although not as severe as the MUSIC spectrum, the floor of the Improved-MUSIC spectrum also increased when the number of correlation samples was decreased.
 		 		 
-		The next performance comparison will be done by varying the SNR of the source signals while holding the remaining parameters constant. This will done using two tests, one which fixes the SNR of each source at $-10\text{dB}$ and the other which fixes the SNR of each source at $30 \text{dB}$. Other parameters that are held constant for each testcase include the number of antenna elements $M=10$, the antenna element spacing $d=\lambda/2$, the number of sources $D=3$, the number of correlation samples $K=100$, the source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and the source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$.
+		\subsection{Performance Impacts of SNR}
 		
-		\begin{figure}[H]
-			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_minus_10db.png}}}
+		The next simulation examines the effects of varying the source signal SNR while holding the remaining parameters constant. This is done using two tests, one which fixes the SNR of each source at $-10\text{dB}$ and the other which fixes the SNR of each source at $30 \text{dB}$. Other parameters that are held constant for each run include the number of antenna elements $M=10$, the antenna element spacing $d=\lambda/2$, the number of sources $D=3$, the number of correlation samples $K=100$, the source angles $\theta = \{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and the source frequencies $\omega = \{\pi/3, \pi/5, \pi/7\}$.
+		
+		\begin{figure}
+			\centerline{\fbox{\includegraphics[width=0.45\textwidth]{spatial_spectrum_snr_minus_10db.png}}}
 			\caption{Spatial Spectrum with -10dB SNR Source Signals}
 			\label{fig::spatial_spectrum_snr_minus_10db}
 		\end{figure}
 		
-		\begin{figure}[H]
-			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_snr_30db.png}}}
+		\begin{figure}
+			\centerline{\fbox{\includegraphics[width=0.45\textwidth]{spatial_spectrum_snr_30db.png}}}
 			\caption{Spatial Spectrum with 30dB SNR Source Signals}
 			\label{fig::spatial_spectrum_snr_30db}
 		\end{figure}
 		
-		\begin{table}[H]
+		\begin{table}
 		\caption{DOA Algorithm Performance for SNR=-10dB and SNR=30dB}
 		\footnotesize
 		\begin{tabular}{|P{\colwidth}|P{\colwidth}|P{\colwidth}|P{\colwidth}|}
@@ -520,25 +528,29 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		
 		Comparing Fig. \ref{fig::spatial_spectrum_snr_minus_10db} to Fig. \ref{fig::spatial_spectrum_snr_30db}, the performance impacts of SNR can be seen. Reduced SNR leads to greater angle errors in each of the estimated directions of arrival. Reduced SNR also degrades the sharpness of the spatial spectrums peaks, reducing spatial resolution. Furthermore, reduced SNR increases the floors of the spatial spectrums making it more difficult to detect lower power source signals.
 		
-		Next, the performance of each direction of arrival algorithm will be compared for closely spaced sources. For this case, the simulation will be configured with number of antenna elements $M=10$, antenna element spacing $d=\lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles $\theta = \{0^{\circ}, 10^{\circ}, 15^{\circ}\}$, and source frequencies $\omega = \{\pi/3. \pi/5, \pi/7\}$.
+		\subsection{Performance Imacts of Source Spacing}
 		
-		\begin{figure}[H]
+		The performance of each direction of arrival algorithm will be compared for closely spaced sources. For this case, the simulation was configured with number of antenna elements $M=10$, antenna element spacing $d=\lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles $\theta = \{0^{\circ}, 10^{\circ}, 15^{\circ}\}$, and source frequencies $\omega = \{\pi/3. \pi/5, \pi/7\}$.
+		
+		\begin{figure}
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_closely_spaced_sources.png}}}
 			\caption{Spatial Spectrum for Closely Spaced Sources}
 			\label{fig::closely_spaced_sources}
 		\end{figure}
 		
-		Examining Fig. \ref{fig::closely_spaced_sources}, the mainlobes of the beamforming spatial spectrum have merged into a single large mainlobe. This can result in only one source being detected when there are in fact 3. The peaks corresponding to each source in the remaining spectrums are preserved. However, the nulls between sources are not nearly as deep as they were for sources that were spaced further apart. This can result in missed detections of lower power sources between the spectrum peaks. The MUSIC, Improved-MUSIC, Root-MUSIC spectrum, and ESPRIT direction of arrival algorithms are classified as high resolution \cite{root_music_esprit_patwari}. This means that closely spaced targets are better resolved as illustrated in Fig. \ref{fig::closely_spaced_sources}.
+		Examining Fig. \ref{fig::closely_spaced_sources}, the mainlobes of the beamforming spatial spectrum have merged into a single large mainlobe. This can result in only one source being detected when there are in fact three. The peaks corresponding to each source in the remaining spectrums are preserved. However, the nulls between sources are not nearly as deep as they were for sources that were spaced further apart. This can result in missed detections of lower power sources between the spectrum peaks. The MUSIC, Improved-MUSIC, Root-MUSIC spectrum, and ESPRIT direction of arrival algorithms are classified as high resolution \cite{root_music_esprit_patwari}. This means that closely spaced targets are better resolved as illustrated in Fig. \ref{fig::closely_spaced_sources}.
 		
-		Finally, the last case that will be examined is correlated signals. For this case, the simulation will be configured with number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles = $\{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/3, \pi/7\}$. Setting two of the source frequencies the same should result in two of the signals being correlated. 
+		\subsection{Performance Impacts of Correlated Source Signals}
 		
-		\begin{figure}[H]
+		Tthe last case that was examined looked at the impacts of correlated source signals. For this case, the simulation will be configured with number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles = $\{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/3, \pi/7\}$. Setting two of the source frequencies the same should result in two of the signals being correlated. 
+		
+		\begin{figure}
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_correlated_sources.png}}}
 			\caption{Spatial Spectrum for Correlated Sources}
 			\label{fig::correlated_signals}
 		\end{figure}
 		
-		\begin{table}[H]
+		\begin{table}
 		\caption{DOA Algorithm Performance for Correlated Signals}
 		\footnotesize
 		\begin{tabular}{|P{\colwidthC}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|P{\colwidthB}|}
