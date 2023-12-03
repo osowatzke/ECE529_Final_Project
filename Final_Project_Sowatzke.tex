@@ -34,8 +34,12 @@ osowatzke@arizona.edu}}
 \maketitle
 
 \begin{abstract}
-	Direction of arrival (DOA) estimation plays an integral role in radar, wireless communications, sonar, radio astronomy, and navigation \cite{doa_algorithms_raghu}. Specific algorithms for DOA estimation include beamforming, MVDR, MUSIC, improved MUSIC, Root Music, and ESPRIT \cite{doa_algorithms_raghu}. Following the work of Raghu and Kamari, this paper evaulates the performance of each of these direction of arrival algorithms operating on data from a uniform linear array. 
+	Direction of arrival (DOA) estimation plays an integral role in radar, wireless communications, sonar, radio astronomy, and navigation \cite{doa_algorithms_raghu}. Specific algorithms for DOA estimation include beamforming, MVDR, MUSIC, improved MUSIC, Root Music, and ESPRIT. This paper provides background on each of the above algorithms. Then, following the work of Raghu and Kamari, this paper evaluates the performance of each DOA algorithm operating on data from a uniform linear array. The performance evaluation will investigate the effects of uniform linear array size, number of correlation samples, SNR, closely spaced sources, and correlated signals on algorithm performance.
 \end{abstract}
+
+\begin{IEEEkeywords}
+Direction of Arrival Estimation, Beamforming, MVDR, MUSIC, Improved-MUSIC, Root-Music, ESPRIT, uniform linear array
+\end{IEEEkeywords}
 
 	\section{Introduction}
 	
@@ -49,12 +53,13 @@ osowatzke@arizona.edu}}
 	
 	A block diagram of a uniform linear array with $M$ antenna elements, receiving signals from $D$ sources is given by Raghu and Kamari in \cite{doa_algorithms_raghu}.
 	
-	\begin{figure}[H]
+	\begin{figure}
 		\centerline{\includegraphics[width=0.5\textwidth]{uniform_linear_array.png}}
 		\caption{Uniform Linear Array \cite{doa_algorithms_raghu}}
+		\label{fig::uniform_linear_array}
 	\end{figure}
 	
-	As shown in the figure above, let $d$ be the distance between successive array elements, and $\beta$ be defined as $2\pi/\lambda$. Then if each of the source signals is given by $s_1(n),...,s_D(n)$, the signal received by m-th array element can be written as:
+	As shown in the Fig. \ref{fig::uniform_linear_array}, let $d$ be the distance between successive array elements, and $\beta$ be defined as $2\pi/\lambda$. Then if each of the source signals is given by $s_1(n),...,s_D(n)$, the signal received by m-th array element can be written as:
 	%
 	\begin{equation}
 		\label{received_signal}
@@ -93,7 +98,7 @@ osowatzke@arizona.edu}}
 		R_{xx} = E[XX^H]
 	\end{equation}
 	%
-	The expected value in the above equation is estimated using $K$ (a finite number) samples of the received signal vector $X$. The resulting spatial auto-correlation estimate ${R}_{xx}$ is given in \cite{doa_algorithms_raghu} as follows: 
+	The expected value in the above equation is estimated using $K$ (a finite number) samples of the received signal vector $X$. The resulting spatial auto-correlation estimate $\hat{R}_{xx}$ is given in \cite{doa_algorithms_raghu} as follows: 
 	%
 	\begin{equation}
 		\label{spatial_matrix_estimate}
