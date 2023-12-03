@@ -34,11 +34,11 @@ osowatzke@arizona.edu}}
 \maketitle
 
 \begin{abstract}
-	Direction of arrival (DOA) estimation plays an integral role in radar, wireless communications, sonar, radio astronomy, and navigation \cite{doa_algorithms_raghu}. Specific algorithms for DOA estimation include beamforming, MVDR, MUSIC, improved MUSIC, Root Music, and ESPRIT. This paper provides background on each of the above algorithms. Then, following the work of Raghu and Kamari, this paper evaluates the performance of each DOA algorithm operating on data from a uniform linear array. The performance evaluation will investigate the effects of uniform linear array size, number of correlation samples, SNR, closely spaced sources, and correlated signals on algorithm performance.
+	Direction of arrival (DOA) estimation plays an integral role in radar, wireless communications, sonar, radio astronomy, and navigation \cite{doa_algorithms_raghu}. Specific algorithms for DOA estimation include beamforming, Capon, MUSIC, improved MUSIC, Root Music, and ESPRIT. This paper provides background on each of the above algorithms. Then, following the work of Raghu and Kamari, this paper evaluates the performance of each DOA algorithm operating on data from a uniform linear array. The performance evaluation will investigate the effects of uniform linear array size, number of correlation samples, SNR, closely spaced sources, and correlated signals on algorithm performance.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Direction of Arrival Estimation, Beamforming, MVDR, MUSIC, Improved-MUSIC, Root-Music, ESPRIT, uniform linear array
+Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root-Music, ESPRIT, uniform linear array
 \end{IEEEkeywords}
 
 	\section{Introduction}
@@ -106,6 +106,8 @@ Direction of Arrival Estimation, Beamforming, MVDR, MUSIC, Improved-MUSIC, Root-
 	\end{equation}
 	
 	\section{Direction of Arrival Algorithms}
+	
+	This section provides an overview of the Beamforming, Capon, Music, Improved-MUSIC, Root-MUSIC, and ESPRIT direction of arrival algorithms.
 	
 	\subsection{Beamforming}
 	
