@@ -246,7 +246,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		%
 		where $z_i$ is one of the roots near the unit circle.
 		
-			Note that direction of arrivals provided by Raghu and Kamari in  \cite{doa_algorithms_raghu} have a sign error. This sign error occurs because they use a direction of arrival formula based on a different uniform linear array definition. The formula they provide works for a uniform linear array in which positive angles of arrival correspond to sources right of the uniform linear array.
+			Note that direction of arrivals provided by Raghu and Kamari in \cite{doa_algorithms_raghu} have a sign error. This sign error occurs because they use a direction of arrival formula inconsistent with their uniform linear array definition. The formula they reference works for a uniform linear array in which positive angles of arrival correspond to sources right of the uniform linear array.
 		
 	\subsection{ESPRIT}
 		
@@ -258,11 +258,11 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 			\label{fig::esprit_subarrays}
 		\end{figure}
 		
-		To perform the ESPRIT algorithm, capture $K$ samples of the received signal and estimate the spatial auto-correlation matrix using equation (\ref{spatial_matrix_estimate}). Then, perform an eigenvalue decomposition of the spatial auto-correlation matrix using equation (\ref{eigenvalue_decomposition_of_Rxx}). The output of the eigenvector decomposition will be an MxM diagonal matrix $\Lambda = \text{diag}\{\lambda_0, ..., \lambda_{M-1}\}$ and an MxM eigenvector matrix $E = \begin{bmatrix}e_0 & \cdots & e_{M-1}\end{bmatrix}$. 
+		To perform the ESPRIT algorithm, capture $K$ samples of the received signal and estimate the spatial auto-correlation matrix using equation (\ref{spatial_matrix_estimate}). Then, perform an eigenvalue decomposition of the spatial auto-correlation matrix using equation (\ref{eigenvalue_decomposition_of_Rxx}). The output of the eigenvalue decomposition will be an MxM diagonal matrix $\Lambda = \text{diag}\{\lambda_0, ..., \lambda_{M-1}\}$ and an MxM eigenvector matrix $E = \begin{bmatrix}e_0 & \cdots & e_{M-1}\end{bmatrix}$ \cite{doa_algorithms_raghu}. 
 		
-		Next, estimate the number of sources $D$ using either equation (\ref{AIC_num_sources}) or equation (\ref{MDL_num_sources}). If the eigenvalues are sorted in descending order $\lambda_0 > \lambda_1 > \cdots > \lambda_{M-1}$, then the $D$ largest eigenvalues and their respective eigenvectors ($e_0, e_1, ..., e_{D-1}$) correspond to sources. These eigenvectors can be grouped into an MxD matrix $E_s = \begin{bmatrix} e_0 & \cdots e_{D-1} \end{bmatrix}$.
+		Next, estimate the number of sources $D$ using either equation (\ref{AIC_num_sources}) or equation (\ref{MDL_num_sources}). If the eigenvalues are sorted in descending order $\lambda_0 > \lambda_1 > \cdots > \lambda_{M-1}$, then the $D$ largest eigenvalues and their respective eigenvectors ($e_0, e_1, ..., e_{D-1}$) correspond to sources. These eigenvectors can be grouped into an MxD matrix $E_s = \begin{bmatrix} e_0 & \cdots & e_{D-1} \end{bmatrix}$ \cite{doa_algorithms_raghu}.
 		
-		$E_s$ can be further split into two submatrices $E_{s1}$ and $E_{s2}$ following to the array division shown in Fig. \ref{fig::esprit_subarrays}. Specifically, $E_{s1}$ is the first $M-1$ rows of $E_s$, and $E_{s2}$ is the last $M-1$ rows of $E_s$. Next, compute the eigenvalue decomposition of the following combination of $E_{s1}$ and $E_{s2}$:
+		$E_s$ can be further split into two submatrices $E_{s1}$ and $E_{s2}$ following to the array division shown in Fig. \ref{fig::esprit_subarrays}. Specifically, $E_{s1}$ is the first $M-1$ rows of $E_s$, and $E_{s2}$ is the last $M-1$ rows of $E_s$ \cite{doa_algorithms_raghu}. Next, compute the eigenvalue decomposition of the following combination of $E_{s1}$ and $E_{s2}$:
 		
 		\begin{equation}
 			\begin{bmatrix}
@@ -276,27 +276,29 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		\end{equation}
 		
 		Following \cite{doa_algorithms_raghu}, the matrix $V$ can be partitioned into four submatrices:
-		
+		%
 		\begin{equation*}
 			V = \begin{bmatrix}
 				V_{11} & V_{12}\\[6pt]
 				V_{21} & V_{22}
 			\end{bmatrix}
 		\end{equation*}
-
+		%
 		The rotational operator is then defined in \cite{root_music_esprit_patwari} as
-		
+		%
 		\begin{equation*}
 			\psi = -V_{12}V_{22}^{-1}
 		\end{equation*}
-		
-		If the eigenvalues of $\psi$ are defined as $\hat{\phi}_k$ for $k = 1,2,...,D$, then the directions of arrival are given in \cite{doa_algorithms_raghu} as:
-		
+		%
+		If the eigenvalues of $\psi$ are defined as $\hat{\phi}_k$ for $k = 1,2,...,D$, then the directions of arrival are given in \cite{root_music_esprit_patwari} as:
+		%
 		\begin{equation}
 			\hat{\theta}_k = -\sin^{-1}{\left[\frac{\text{arg}(\hat{\phi}_k)}{{\beta}d}\right]}
 		\end{equation}
-		
+		%
 		Similar to the root music algorithm, the ESPRIT algorithm directly produces directions of arrival without requiring the user to search through a spatial spectrum.
+		
+		Note that direction of arrivals provided by Raghu and Kamari in \cite{doa_algorithms_raghu} have a sign error. This sign error occurs because they use a direction of arrival formula inconsistent with their uniform linear array definition. The formula they reference works for a uniform linear array in which positive angles of arrival correspond to sources right of the uniform linear array.
 		
 	\section{Simulation}
 	
