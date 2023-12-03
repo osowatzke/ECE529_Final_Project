@@ -302,9 +302,9 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		
 	\section{Simulation}
 	
-		The performance of each of the above direction of arrival algorithms will be evaluated in simulation. A uniform linear array model will be used to generate data samples for each direction of arrival algorithm. This model will take the number of samples ($K$), the number of antenna elements ($M$), and the antenna element spacing ($d$) as arguments. Each of the source signals will be a complex exponential at user-configurable frequencies, directions of arrival, and signal to noise ratios.
+		The performance of each of the above direction of arrival algorithms will be evaluated in simulation. A uniform linear array model will be used to generate data samples for each direction of arrival algorithm. This model will take the number of samples ($K$), the number of antenna elements ($M$), and the antenna element spacing ($d$) as arguments. Each of the source signals will be a complex exponential at user-configurable frequencies ($\omega$), directions of arrival ($\theta$), and signal to noise ratios (SNR).
 		
-		After the received signal is generated, it will be input into each of the direction of arrival algorithms. The direction of arrival algorithms will then output either a spatial spectrum or an angle estimate. These outputs will be graphed on the same axes to provide a basis for comparing algorithms. Angle estimates not directly output by an algorithms will be measured by finding peaks in the spatial spectrum. A block diagram of the simulation workflow is shown in Figure \ref{sim_workflow}.
+		After the received signal is generated, it will be input into each of the direction of arrival algorithms. The direction of arrival algorithms will then output either a spatial spectrum or an angle estimate. Spatial spectrums will be generated in $1^{\circ}$ increments from $-90^{\circ}$ to $90^{\circ}$. The outputs of each algorithm will be graphed on the same axes to provide a basis for comparing algorithms. Angle estimates not directly output by an algorithms will be measured by finding peaks in the spatial spectrum. A block diagram of the simulation workflow is shown in Figure \ref{sim_workflow}.
 		
 		\begin{figure}[H]
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{program_flow.png}}}
