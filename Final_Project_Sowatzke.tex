@@ -542,7 +542,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		
 		\subsection{Performance Impacts of Correlated Source Signals}
 		
-		Tthe last case that was examined looked at the impacts of correlated source signals. For this case, the simulation will be configured with number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles = $\{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/3, \pi/7\}$. Setting two of the source frequencies the same should result in two of the signals being correlated. 
+		The last case that was examined looked at the impacts of correlated source signals. For this case, the simulation will be configured with number of antenna elements $M=10$, antenna element spacing $d = \lambda/2$, $\text{SNR}=30\text{dB}$, number of sources $D=3$, number of correlation samples $K=100$, source angles = $\{-40^{\circ}, 10^{\circ}, 50^{\circ}\}$, and source frequencies $\omega = \{\pi/3, \pi/3, \pi/7\}$. Setting two of the source frequencies the same should result in two of the signals being correlated. 
 		
 		\begin{figure}
 			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{spatial_spectrum_correlated_sources.png}}}
@@ -574,24 +574,11 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		\end{table}
 		
 		Examining the spatial spectrums in Fig. \ref{fig::correlated_signals} and Table \ref{table::correlated_signals}, the directions of arrival for the uncorrelated signals are detected correctly by each algorithm. However, only the beamforming and Improved-MUSIC algorithms are able to correctly determined the directions of arrival for each of the correlated signals.
-		% Following Equation (\ref{received_signal}), the received signal will be a sum of each source signals and complex gaussian noise. The noise will be unit power and each source signal will be scaled to provide a user-configured SNR. received signal will be the sum of complex gaussian noise and and Each of the received signals will be a complex exponential tuned at a user-specified frequency received at a user-specified angle.
 		
-		% The uniform will contain is model will be representative of a uniform linear array with $M$ elements
+	\section{Conclusion}
 		
-		% angles corresponding of each signal root can be found by using the
-		%The sum of the terms on the main diagonal will be weighted by $z^0$, the sum of the terms directly above the main diagonal will be weighted by $z^1$, and so on. The terms in the resulting polynomial will be weighted by powers of $z$ from $-(M-1)$ to $M-1$.
-		
-		%$C_ij$. jrh The terms on the main diagonal with all hav
-		%this is the point at which the algorithms begin to differ.The MUSIC spectrum is then given by Equation (\ref{music_spectrum}). The denominator of the spectrum can be written in the following form:
-		
-	%\begin{equation}
-	%	A = \begin{bmatrix}
-	%		1 & 1 & \cdots & 1\\
-	%		e^{j{\beta}d\sin{\theta_1}} & e^{j{\beta}d\sin{\theta_2}} & \cdots & e^{j{\beta}d\sin{\theta_D}} \\
-	%		\vdots & \vdots & \ddots & \vdots\\
-	%		e^{j{\beta}d(M-1)\sin{\theta_1}} & e^{j{\beta}d(M-1)\sin{\theta_2}} & \cdots & e^{j{\beta}d(M-1)\sin{\theta_D}}
-	%	\end{bmatrix}
-	%\end{equation}
+	This paper provided an overview of direction of angle estimation using a uniform linear array. It included background information on uniform linear arrays and spatial auto-correlation matrices. It then examined how both these concepts were leveraged in specific direction of arrival estimation. These algorithms included Beamforming, Capon, MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. The performance of each algorithm was then examined, while varying a variety of parameters, which included uniform linear array size, number of correlation samples, SNR, source spaced, and source signal correlation. It was discovered that increasing the number of antenna elements, increasing the number of correlation samples, and increasing the SNR resulted in performance improvements. Certain direction of arrival algorithms were also better equipped to handle closely spaced sources. These high resolution algorithms included MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. Correlated source signals were also shown to be a problem for most direction of arrival algorithms. However, it was demonstrated that the Improved-MUSIC algorithm had the ability to handle this case.
+	 
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEabrv,sources}
 	\onecolumn
