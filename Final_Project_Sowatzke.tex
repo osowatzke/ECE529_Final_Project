@@ -37,6 +37,10 @@ osowatzke@arizona.edu}}
 	Direction of arrival (DOA) estimation plays an integral role in radar, wireless communications, sonar, radio astronomy, and navigation \cite{doa_algorithms_raghu}. Specific algorithms for DOA estimation include beamforming, MVDR, MUSIC, improved MUSIC, Root Music, and ESPRIT \cite{doa_algorithms_raghu}. Following the work of Raghu and Kamari, this paper evaulates the performance of each of these direction of arrival algorithms operating on data from a uniform linear array. 
 \end{abstract}
 
+	\section{Introduction}
+	
+	This paper provides an overview of direction of angle estimation using a uniform linear array. It includes background information on uniform linear arrays and then examines how samples from a uniform linear array can be used for direction of arrival estimation. Specific algorithms examined include Beamforming, Capon, MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. An overview of each of these algorithms is provided, and then their performance is examined in a MATLAB simulation. This simulation is used to examine the effects of uniform linear array size, number of correlation samples, SNR, closely spaced sources, and correlated source signals on algorithm performance.
+	 
 	\section{Background}
 	
 	Each of the direction of angle algorithms compared in this report operate on data collected with an antenna array. This report specifically examines data collected with a uniform linear array (ULA). A block diagram of a uniform linear array with $M$ antenna elements, receiving signals from $D$ sources is given by Raghu and Kamari in \cite{doa_algorithms_raghu}.
