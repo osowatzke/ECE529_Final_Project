@@ -5,6 +5,8 @@
 \usepackage{multirow}
 \usepackage{multirow,tabularx}
 \usepackage{calc}
+\usepackage{matlab-prettifier}
+
 \graphicspath{{./images/}}
 
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
@@ -585,4 +587,21 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 	\appendices
 	\section{MATLAB Source Code}
 	\label{appendix::matlab_code}
+	\lstset{style=Matlab-editor}
+	\lstinputlisting{../code/Final_Project_Sowatzke.m}
+	\lstinputlisting{../code/key_value_constructor.m}
+	\lstinputlisting{../code/doa_estimator.m}
+	\lstinputlisting{../code/high_resolution_doa_estimator.m}
+	\lstinputlisting{../code/aic_num_sources.m}
+	\lstinputlisting{../code/mdl_num_sources.m}
+	\lstinputlisting{../code/compute_corr.m}
+	\lstinputlisting{../code/doa_algorithm_comparison.m}
+	\lstinputlisting{../code/uniform_linear_array.m}
+	\lstinputlisting{../code/beamforming_doa_estimator.m}
+	\lstinputlisting{../code/capon_doa_estimator.m}
+	\lstinputlisting{../code/music_doa_estimator.m}
+	\lstinputlisting{../code/improved_music_doa_estimator.m}
+	\lstinputlisting{../code/root_music_doa_estimator.m}
+	\lstinputlisting{../code/esprit_doa_estimator.m}
+	\raggedbottom
 \end{document}
