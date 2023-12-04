@@ -1,6 +1,6 @@
 % Author: O. Sowatzke
 %
-% Update: 12/03/2023
+% Update: 12/05/2023
 %
 % Subject: Base class for high-resolution direction of arrival estimator
 %

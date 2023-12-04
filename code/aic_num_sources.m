@@ -14,7 +14,8 @@ function num_sources = aic_num_sources(lambda, K)
 
     % Loop for each eigenvalue
     for n = 0:(length(arg)-1)
-        arg(n+1) = -2*log((prod(lambda((n+1):end).^(1/(M-n)))/((1/(M-n))*sum(lambda((n+1):end)))).^((M-n)*K)) + ...
+        arg(n+1) = -2*log((prod(lambda((n+1):end).^(1/(M-n)))/...
+            ((1/(M-n))*sum(lambda((n+1):end)))).^((M-n)*K))+...
             2*n*(2*M - n);
     end
 

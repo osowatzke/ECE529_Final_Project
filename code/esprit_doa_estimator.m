@@ -5,7 +5,7 @@
 % Subject: Class generates direction of arrival estimates using the
 % ESPRIT algorithm
 %
-classdef espirit_doa_estimator < high_resolution_doa_estimator
+classdef esprit_doa_estimator < high_resolution_doa_estimator
 
     % Public class methods
     methods

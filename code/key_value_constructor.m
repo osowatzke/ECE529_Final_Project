@@ -1,6 +1,6 @@
 % Author: O. Sowatzke
 %
-% Updated: 09/27/2023
+% Updated: 12/05/2023
 %
 % Subject: Class initializes class properties using a list of
 % key value pairs.

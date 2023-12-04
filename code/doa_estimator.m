@@ -1,6 +1,6 @@
 % Author: O. Sowatzke
 %
-% Updated: 11/18/2023
+% Updated: 12/05/2023
 %
 % Subject: Base class for direction of arrival estimator
 %

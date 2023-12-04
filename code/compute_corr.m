@@ -1,6 +1,6 @@
 % Author: O. Sowatzke
 %
-% Updated: 12/03/2023
+% Updated: 12/05/2023
 %
 % Subject: Function computes a correlation matrix using samples of the
 % received signal
