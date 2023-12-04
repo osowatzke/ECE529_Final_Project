@@ -1,4 +1,14 @@
-classdef doa_estimation < key_value_constructor
+% Author: O. Sowatzke
+%
+% Updated: 12/05/2023
+%
+% Subject: Class compares direction of arrival algorithms. It creates
+% uniform linear array data for a given scenario. Then, it lets each 
+% algorithm run over the data. The algorithm outputs (spatial spectrums
+% or angle estimates) are plotted on the same axis to allow the user
+% to compare algorithm performance
+%
+classdef doa_algorithm_comparison < key_value_constructor
 
     % Public class properties
     properties

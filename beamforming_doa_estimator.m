@@ -1,9 +1,10 @@
 % Author: O. Sowatzke
 %
-% Updated: 10/01/2023
+% Updated: 12/05/2023
 %
-% Subject: Class generates the spatial spectrum using a beamforming
-% to estimate the direction of arrival
+% Subject: Class generates a spatial spectrum using the Beamforming
+% direction of arrival algorithm. The angles at which the spatial spectrum
+% peaks should correspond to the directions of arrival.
 %
 classdef beamforming_doa_estimator < doa_estimator
 

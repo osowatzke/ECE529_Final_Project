@@ -1,6 +1,6 @@
 % Author: O. Sowatzke
 %
-% Updated: 12/03/2023
+% Updated: 12/05/2023
 %
 % Subject: Function computes the number of sources using the AIC algorithm
 %

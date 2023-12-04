@@ -1,3 +1,10 @@
+% Author: O. Sowatzke
+%
+% Updated: 12/05/2023
+%
+% Subject: Class generates direction of arrival estimates using the
+% Root-MUSIC algorithm
+%
 classdef root_music_doa_estimator < high_resolution_doa_estimator
     
     % Public class methods

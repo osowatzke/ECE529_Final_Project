@@ -1,3 +1,11 @@
+% Author: O. Sowatzke
+%
+% Updated: 12/05/2023
+%
+% Subject: Class generates a spatial spectrum using the MUSIC
+% direction of arrival algorithm. The angles at which the spatial spectrum
+% peaks should correspond to the directions of arrival.
+%
 classdef music_doa_estimator < high_resolution_doa_estimator
 
     % Public class methods
