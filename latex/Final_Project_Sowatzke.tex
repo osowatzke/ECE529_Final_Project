@@ -60,7 +60,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		\label{fig::uniform_linear_array}
 	\end{figure}
 	
-	As shown in the Fig. \ref{fig::uniform_linear_array}, let $d$ be the distance between successive array elements, and $\beta$ be defined as $2\pi/\lambda$. Then if each of the source signals is given by $s_1(n),...,s_D(n)$, the signal received by m-th array element can be written as:
+	As shown in Fig. \ref{fig::uniform_linear_array}, let $d$ be the distance between successive array elements, and $\beta$ be defined as $2\pi/\lambda$. Then if each of the source signals is given by $s_1(n),...,s_D(n)$, the signal received by m-th array element can be written as:
 	%
 	\begin{equation}
 		\label{received_signal}
@@ -120,7 +120,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		%
 		where $a(\theta)$ is the array response given in Equation (\ref{array_response_vector}).
 		
-		To estimate the direction of arrival, compute the spatial spectrum in discrete steps over a region of interest. Then, find the peaks of the spatial spectrum. The angles corresponding to the peaks are the directions of arrival for each source.
+		To estimate the direction of arrival, the spatial spectrum should be computed in discrete steps over a region of interest. Then, the peaks of the spatial spectrum should be located. The angles corresponding to the peaks are the directions of arrival for each source.
 		
 	\subsection{Capon/MVDR}
 	
@@ -247,7 +247,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		%
 		where $z_i$ is one of the roots near the unit circle.
 		
-			Note that direction of arrivals provided by Raghu and Kamari in \cite{doa_algorithms_raghu} have a sign error. This sign error occurs because they use a direction of arrival formula inconsistent with their uniform linear array definition. The formula they reference works for a uniform linear array in which positive angles of arrival correspond to sources right of the uniform linear array.
+			Note that direction of arrivals provided by Raghu and Kamari in \cite{doa_algorithms_raghu} have a sign error. This sign error occurs because they use a direction of arrival formula inconsistent with their uniform linear array definition. The formula they cite works for a uniform linear array in which positive angles of arrival correspond to sources right of the uniform linear array.
 		
 	\subsection{ESPRIT}
 		
@@ -299,7 +299,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		%
 		Similar to the root music algorithm, the ESPRIT algorithm directly produces directions of arrival without requiring the user to search through a spatial spectrum.
 		
-		Note that direction of arrivals provided by Raghu and Kamari in \cite{doa_algorithms_raghu} have a sign error. This sign error occurs because they use a direction of arrival formula inconsistent with their uniform linear array definition. The formula they reference works for a uniform linear array in which positive angles of arrival correspond to sources right of the uniform linear array.
+		Note that direction of arrivals provided by Raghu and Kamari in \cite{doa_algorithms_raghu} have a sign error. This sign error occurs because they use a direction of arrival formula inconsistent with their uniform linear array definition. The formula they cite works for a uniform linear array in which positive angles of arrival correspond to sources right of the uniform linear array.
 		
 	\section{Simulation}
 	
@@ -315,15 +315,15 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		
 		Following the work of Raghu and Kamari in \cite{doa_algorithms_raghu}, this simulation framework is used to evaluate the performance of each direction of arrival algorithm, while varying parameters. These parameters include the number of antenna elements, the number of correlation samples, the signal to noise ratio, the source spacing, and the correlation between source signals.
 		
-		The SNR parameter included in the simulation produces different results than the SNR parameter given by Raghu and Kamari in \cite{doa_algorithms_raghu}. Instead of being a scalar, the SNR parameter is an array with an entry for each source signal. This enables the user to produce sources signals with different powers levels. However, because all the cases provided by \cite{doa_algorithms_raghu} use source signals with equal power, all the simulated cases will do the same.
+		The SNR parameter included in the simulation is different than the SNR parameter given by Raghu and Kamari in \cite{doa_algorithms_raghu}. Instead of being a scalar like the parameter given in \cite{doa_algorithms_raghu}, the SNR parameter used in the simulation is an array with an entry for each source signal. This enables the user to produce sources signals with different powers levels. However, because all the cases provided by \cite{doa_algorithms_raghu} use source signals with equal power, all the simulated cases will do the same.
 		
-		For a given SNR, the simulation results given in \cite{doa_algorithms_raghu} are inconsistent with those generated by the uniform linear array model included in this paper. To produce source signals at the desired SNR, the model generates complex gaussian noise with unit power. Then, the amplitude of each source signal is scaled by $10^{\text{SNR}/20}$. In MATLAB, the SNR of each generated signal was verified by taking \texttt{10\^{}(var(source\_signal)/var(noise\_signal))}. The resulting SNRs were consistent with those input. Therefore, the usage of SNR in this paper's uniform linear array model is correct. The discrepancies with \cite{doa_algorithms_raghu} may be due to a different usage of the SNR parameter (i.e it may be for all sources) or an error in the scaling to produce signals at different SNRs. To produce similar results to those given in \cite{doa_algorithms_raghu}, the SNR of the sources signals has been adjusted to produce similar spatial spectrums.
+		For a given SNR, the simulation results given in \cite{doa_algorithms_raghu} are also inconsistent with those generated in this simulation. To produce source signals at the desired SNR, the simulation generates complex gaussian noise with unit power. Then, the amplitude of each source signal is scaled by $10^{\text{SNR}/20}$. In MATLAB, the SNR of each generated signal was verified by taking \texttt{10\^{}(var(source\_signal)/var(noise\_signal))}. The resulting SNRs were consistent with those input. Therefore, the usage of SNR in this paper's uniform linear array model is correct. 
 		
-		%Because of these discrepancies, different SNR values are used when trying the  
+		The discrepancies with \cite{doa_algorithms_raghu} may be due to a different usage of the SNR parameter (i.e it may be for all sources) or an error in the scaling to produce signals at different SNRs. To produce similar results to those given in \cite{doa_algorithms_raghu}, the SNR of the sources signals has been adjusted to produce similar spatial spectrums.
 		
 	\section{Results}
 	
-		The simulation results are given below. The goal of these simulations were to compare algorithm performance while varying simulation parameters such as the number of antenna elements, the number of correlation samples, the signal to noise ratio, the source spacing, and the correlation between source signals.
+		The simulation results are given below. The goal of these simulations was to compare algorithm performance while varying simulation parameters such as the number of antenna elements, the number of correlation samples, the signal to noise ratio, the source spacing, and the correlation between source signals.
 		
 		\subsection{Performance Impacts of Number of Antenna Elements}
 		
