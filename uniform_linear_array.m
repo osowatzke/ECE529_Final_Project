@@ -2,7 +2,7 @@
 %
 % Updated: 09/27/2023
 %
-% Subject: Class generates receive data for a uniform linear array
+% Subject: Class generates received data for a uniform linear array
 %
 classdef uniform_linear_array < key_value_constructor
 

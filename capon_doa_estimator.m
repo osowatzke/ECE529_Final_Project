@@ -7,7 +7,7 @@ classdef capon_doa_estimator < doa_estimator
         function P = create_spatial_spectrum(self, rx_data)
 
             % Function estimates the auto-correlation matrix
-            Rxx = self.compute_corr(rx_data);
+            Rxx = compute_corr(rx_data);
 
             % Convert the look angle to radians
             look_angle_rad = (self.look_angle(:).')*pi/180;

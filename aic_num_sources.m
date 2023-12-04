@@ -1,3 +1,9 @@
+% Author: O. Sowatzke
+%
+% Updated: 12/03/2023
+%
+% Subject: Function computes the number of sources using the AIC algorithm
+%
 function num_sources = aic_num_sources(lambda, K)
 
     % Number of eigenvalues

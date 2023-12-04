@@ -1,4 +1,4 @@
-classdef improved_music_doa_estimator < doa_estimator
+classdef improved_music_doa_estimator < high_resolution_doa_estimator
 
     % Public class methods
     methods
@@ -7,7 +7,7 @@ classdef improved_music_doa_estimator < doa_estimator
         function P = create_spatial_spectrum(self, rx_data)
 
             % Function estimates the auto-correlation matrix
-            Rxx = self.compute_corr(rx_data);
+            Rxx = compute_corr(rx_data);
 
             % compute the number of elements in uniform linear array
             num_elements = size(rx_data,1);
@@ -23,7 +23,7 @@ classdef improved_music_doa_estimator < doa_estimator
 
             % Function estimates the auto-correlation matrix of the
             % transformed data
-            Ryy = 1/num_samples*(Y*Y');
+            Ryy = compute_corr(Y);
 
             % Compute a new auto-correlation matrix
             R = Rxx + Ryy;

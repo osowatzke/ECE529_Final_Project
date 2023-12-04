@@ -1,4 +1,4 @@
-classdef espirit_doa_estimator < doa_estimator
+classdef espirit_doa_estimator < high_resolution_doa_estimator
 
     % Public class methods
     methods
@@ -10,7 +10,7 @@ classdef espirit_doa_estimator < doa_estimator
             num_samples = size(rx_data,2);
 
             % Function estimates the auto-correlation matrix
-            Rxx = self.compute_corr(rx_data);
+            Rxx = compute_corr(rx_data);
 
             % Compute the eigenvectors of the matrix
             [Es,D] = eig(Rxx);
