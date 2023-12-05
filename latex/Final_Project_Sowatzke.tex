@@ -99,7 +99,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		R_{xx} = E[XX^H]
 	\end{equation}
 	%
-	The expected value in the above equation is estimated using $K$ (a finite number) samples of the received signal vector $X$. The resulting spatial auto-correlation estimate $\hat{R}_{xx}$ is given in \cite{doa_algorithms_raghu} as follows: 
+	The expected value in the above equation is estimated using $K$ a finite number of samples of the received signal vector $X$. The resulting spatial auto-correlation estimate $\hat{R}_{xx}$ is given in \cite{doa_algorithms_raghu} as follows: 
 	%
 	\begin{equation}
 		\label{spatial_matrix_estimate}
@@ -120,7 +120,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		%
 		where $a(\theta)$ is the array response given in Equation (\ref{array_response_vector}).
 		
-		To estimate the direction of arrival, the spatial spectrum should be computed in discrete steps over a region of interest. Then, the peaks of the spatial spectrum should be located. The angles corresponding to the peaks are the directions of arrival for each source.
+		To estimate the direction of arrival, the spatial spectrum should be computed in discrete steps over a region of interest. Then, the peaks of the spatial spectrum should be located. The angles corresponding to peaks are the directions of arrival for each source signal.
 		
 	\subsection{Capon/MVDR}
 	
@@ -131,7 +131,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 	\end{equation}
 	%
 	
-		Similar to beamforming direction of arrival estimation, Capon direction of angle estimation requires generating the spatial spectrum in discrete steps over a region of interest. Then, this spectrum can be searched for peaks. The angle corresponding to the peaks are the directions of arrival for each source.
+		Similar to beamforming direction of arrival estimation, Capon direction of angle estimation requires generating the spatial spectrum in discrete steps over a region of interest and searching through it for peaks. The angles corresponding to peaks are the directions of arrival for each source signal.
 	
 	\subsection{MUSIC}
 	
@@ -174,7 +174,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		\hat{P}_{music}(\theta) = \frac{1}{a^H(\theta)E_n{E_n}^Ha(\theta)}
 	\end{equation}
 	
-		As was the case with the other direction direction of angle algorithms, the music spectrum must be generated in discrete steps of a region of interest and then searched for peaks. The angles corresponding peaks are the angles of arrival.
+		As was the case with the other direction direction of angle algorithms, the music spectrum must be generated in discrete steps over a region of interest and then searched for peaks. The angles corresponding peaks are the angles of arrival.
 		
 	\subsection{Improved-MUSIC}
 	
@@ -207,7 +207,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 			\hat{R} = \hat{R}_{xx} + \hat{R}_{yy}
 		\end{equation} 
 		
-		Following the MUSIC algorithm with $\hat{R}$ in place of $\hat{R}_{xx}$, a spatial spectrum can be derived for the Improved-MUSIC algorithm. The spatial spectrum can then be searched for peaks. The angles corresponding to these peaks are the directions of arrival for each source.
+		Following the MUSIC algorithm with $\hat{R}$ in place of $\hat{R}_{xx}$, a spatial spectrum can be derived for the Improved-MUSIC algorithm. The spatial spectrum can then be searched for peaks. The angles corresponding to these peaks are the directions of arrival for each source signal.
 			
 	\subsection{Root-MUSIC}
 		
@@ -259,11 +259,11 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 			\label{fig::esprit_subarrays}
 		\end{figure}
 		
-		To perform the ESPRIT algorithm, capture $K$ samples of the received signal and estimate the spatial auto-correlation matrix using equation (\ref{spatial_matrix_estimate}). Then, perform an eigenvalue decomposition of the spatial auto-correlation matrix using equation (\ref{eigenvalue_decomposition_of_Rxx}). The output of the eigenvalue decomposition will be an MxM diagonal matrix $\Lambda = \text{diag}\{\lambda_0, ..., \lambda_{M-1}\}$ and an MxM eigenvector matrix $E = \begin{bmatrix}e_0 & \cdots & e_{M-1}\end{bmatrix}$ \cite{doa_algorithms_raghu}. 
+		To perform the ESPRIT algorithm, $K$ samples of the received signal should be used to estimate the spatial auto-correlation matrix using equation (\ref{spatial_matrix_estimate}). Then, an eigenvalue decomposition of the spatial auto-correlation matrix should be performed using equation (\ref{eigenvalue_decomposition_of_Rxx}). The output of the eigenvalue decomposition will be an MxM diagonal matrix $\Lambda = \text{diag}\{\lambda_0, ..., \lambda_{M-1}\}$ and an MxM eigenvector matrix $E = \begin{bmatrix}e_0 & \cdots & e_{M-1}\end{bmatrix}$ \cite{doa_algorithms_raghu}. 
 		
-		Next, estimate the number of sources $D$ using either equation (\ref{AIC_num_sources}) or equation (\ref{MDL_num_sources}). If the eigenvalues are sorted in descending order $\lambda_0 > \lambda_1 > \cdots > \lambda_{M-1}$, then the $D$ largest eigenvalues and their respective eigenvectors ($e_0, e_1, ..., e_{D-1}$) correspond to sources. These eigenvectors can be grouped into an MxD matrix $E_s = \begin{bmatrix} e_0 & \cdots & e_{D-1} \end{bmatrix}$ \cite{doa_algorithms_raghu}.
+		Next, the number of sources $D$ should be estimated using either equation (\ref{AIC_num_sources}) or equation (\ref{MDL_num_sources}). If the eigenvalues are sorted in descending order $\lambda_0 > \lambda_1 > \cdots > \lambda_{M-1}$, then the $D$ largest eigenvalues and their respective eigenvectors ($e_0, e_1, ..., e_{D-1}$) correspond to sources. These eigenvectors can be grouped into an MxD matrix $E_s = \begin{bmatrix} e_0 & \cdots & e_{D-1} \end{bmatrix}$ \cite{doa_algorithms_raghu}.
 		
-		$E_s$ can be further split into two submatrices $E_{s1}$ and $E_{s2}$ following to the array division shown in Fig. \ref{fig::esprit_subarrays}. Specifically, $E_{s1}$ is the first $M-1$ rows of $E_s$, and $E_{s2}$ is the last $M-1$ rows of $E_s$ \cite{doa_algorithms_raghu}. Next, compute the eigenvalue decomposition of the following combination of $E_{s1}$ and $E_{s2}$:
+		$E_s$ can be further split into two submatrices $E_{s1}$ and $E_{s2}$ following to the array division shown in Fig. \ref{fig::esprit_subarrays} \cite{doa_algorithms_raghu}. Specifically, $E_{s1}$ is the first $M-1$ rows of $E_s$, and $E_{s2}$ is the last $M-1$ rows of $E_s$. Next, compute the eigenvalue decomposition of the following combination of $E_{s1}$ and $E_{s2}$:
 		
 		\begin{equation}
 			\begin{bmatrix}
@@ -317,13 +317,13 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		
 		The SNR parameter included in the simulation is different than the SNR parameter given by Raghu and Kamari in \cite{doa_algorithms_raghu}. Instead of being a scalar like the parameter given in \cite{doa_algorithms_raghu}, the SNR parameter used in the simulation is an array with an entry for each source signal. This enables the user to produce sources signals with different powers levels. However, because all the cases provided by \cite{doa_algorithms_raghu} use source signals with equal power, all the simulated cases will do the same.
 		
-		For a given SNR, the simulation results given in \cite{doa_algorithms_raghu} are also inconsistent with those generated in this simulation. To produce source signals at the desired SNR, the simulation generates complex gaussian noise with unit power. Then, the amplitude of each source signal is scaled by $10^{\text{SNR}/20}$. In MATLAB, the SNR of each generated signal was verified by taking \texttt{10\^{}(var(source\_signal)/var(noise\_signal))}. The resulting SNRs were consistent with those input. Therefore, the usage of SNR in this paper's uniform linear array model is correct. 
+		For a given SNR, the simulation results given in \cite{doa_algorithms_raghu} are also inconsistent with those generated in this simulation. To produce source signals at the desired SNR, the simulation generates complex gaussian noise with unit power. Then, the amplitude of each source signal is scaled by $10^{\text{SNR}/20}$. In MATLAB, the SNR of each generated signal was verified by taking \texttt{10\^{}(var(source\_signal)/var(noise\_signal))}. The resulting SNRs were consistent with those input. Therefore, the usage of SNR in this paper's simulation is correct. 
 		
 		The discrepancies with \cite{doa_algorithms_raghu} may be due to a different usage of the SNR parameter (i.e it may be for all sources) or an error in the scaling to produce signals at different SNRs. To produce similar results to those given in \cite{doa_algorithms_raghu}, the SNR of the sources signals has been adjusted to produce similar spatial spectrums.
 		
 	\section{Results}
 	
-		The simulation results are given below. These simulations were used to qualitatively and quantitatively assess algorithm performance while varying simulation parameters such as the number of antenna elements, the number of correlation samples, the signal to noise ratio, the source spacing, and the correlation between source signals.
+		The simulation results are given below. These simulations were used to qualitatively and quantitatively assess algorithm performance while varying simulation parameters such as the number of antenna elements, the number of correlation samples, the signal to noise ratio, the source spacing, and the correlation between source signals. Qualitative analysis involved inspecting spatial spectrum, while quantitative analysis involved comparing estimated directions of arrival to input directions of arrival.
 		
 		\subsection{Performance Impacts of Number of Antenna Elements}
 		
@@ -539,7 +539,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 			\label{fig::closely_spaced_sources}
 		\end{figure}
 		
-		Examining the spectrum, the mainlobes of the beamforming spatial spectrum merged into a single large mainlobe. This could result in only one source being detected, when there are in fact three. The spatial spectrum peaks for the remaining alorithms were preserved. However, the nulls between sources were not as deep as they were for distanced sources. This can result in missed detections of low power sources between the spectrum peaks. The MUSIC, Improved-MUSIC, Root-MUSIC spectrum, and ESPRIT direction of arrival algorithms are classified as high resolution because they can better resolve closely spaced sources as illustrated in Fig. \ref{fig::closely_spaced_sources}.
+		Examining the spectrum, the mainlobes of the beamforming spatial spectrum merged into a single large mainlobe. This could result in only one source being detected, when there are in fact three. The spatial spectrum peaks for the remaining alorithms were preserved. However, the nulls between sources were not as deep as they were for distanced sources. This can result in missed detections between the spectrum peaks. The MUSIC, Improved-MUSIC, Root-MUSIC spectrum, and ESPRIT direction of arrival algorithms are classified as high resolution because they can better resolve closely spaced sources as illustrated in Fig. \ref{fig::closely_spaced_sources}.
 		
 		\subsection{Performance Impacts of Correlated Source Signals}
 		
@@ -582,7 +582,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 	
 	It was discovered that increasing the number of antenna elements, increasing the number of correlation samples, and increasing the SNR resulted in performance improvements. Certain direction of arrival algorithms were also better equipped to handle closely spaced sources. These high resolution algorithms included MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. Correlated source signals were also shown to be a problem for most direction of arrival algorithms. However, it was demonstrated that the Improved-MUSIC algorithm could handle this case. 
 	
-	Future improvements to this work involve research on optimal thresholding to detect sources in the spatial spectrums and adding additional software to implement these thresholding schemes. Monte Carlo regressions could be run to evaluate the probabilities of detection corresponding to each thresholding scheme. Overall, the theory provided in this paper along with the corresponding simulations should serve as a firm foundation for understanding and implementing direction of angle estimation.
+	Future improvements to this work involve research on optimal thresholding to detect sources in the spatial spectrums and adding additional software to implement these thresholding schemes. Monte Carlo regressions could be run to evaluate the probabilities of detection for each thresholding scheme. Overall, the theory provided in this paper along with the corresponding simulations should serve as a firm foundation for those attempting to implement or chose between direction of arrival algorithms.
 	 
 	\raggedbottom
 	\pagebreak
