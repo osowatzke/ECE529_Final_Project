@@ -55,7 +55,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 	A block diagram of a uniform linear array with $M$ antenna elements, receiving signals from $D$ sources is given by Raghu and Kamari in \cite{doa_algorithms_raghu}.
 	
 	\begin{figure}
-		\centerline{\includegraphics[width=0.5\textwidth]{uniform_linear_array.png}}
+		\centerline{\includegraphics[width=0.45\textwidth]{uniform_linear_array.png}}
 		\caption{Uniform Linear Array \cite{doa_algorithms_raghu}}
 		\label{fig::uniform_linear_array}
 	\end{figure}
@@ -254,7 +254,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		Estimation of Signal Parameters via Rotational Invariance Technique (ESPRIT) uses rotational invariance of the signal subspace to perform direction of angle estimation \cite{root_music_ko}. It starts by dividing the M-element antenna array into two identical subarrays as illustrated in \cite{doa_algorithms_raghu}.
 		
 		\begin{figure}[H]
-			\centerline{\includegraphics[width=0.5\textwidth]{esprit_doublets.png}}
+			\centerline{\includegraphics[width=0.45\textwidth]{esprit_doublets.png}}
 			\caption{Antenna Array Divided into Two Subarrays \cite{doa_algorithms_raghu}}
 			\label{fig::esprit_subarrays}
 		\end{figure}
@@ -305,10 +305,10 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 	
 		The performance of each of the above direction of arrival algorithms will be evaluated in MATLAB simulation. The code which implements this simulation is included in Appendix \ref{appendix::matlab_code}. The simulation includes a uniform linear array model to generate data samples for each direction of arrival algorithm. This model takes the number of samples ($K$), the number of antenna elements ($M$), and the antenna element spacing ($d$) as arguments. Each of the source signals is a complex exponential at user-configurable frequencies ($\omega$), directions of arrival ($\theta$), and signal to noise ratios (SNR).
 		
-		After the received signal is generated, it is input into each of the direction of arrival algorithms. The direction of arrival algorithms then output either a spatial spectrum or an angle estimate. Spatial spectrums are generated in $1^{\circ}$ increments from $-90^{\circ}$ to $90^{\circ}$. The outputs of each algorithm are then graphed on the same axes to provide a basis for comparing algorithms. Angle estimates not directly output by an algorithms are measured by finding peaks in the spatial spectrum. A block diagram of the simulation workflow is shown in Figure \ref{fig::sim_workflow}.
+		After the received signal is generated, it is input into each of the direction of arrival algorithms. The direction of arrival algorithms then output either a spatial spectrum or an angle estimate. Spatial spectrums are generated in $1^{\circ}$ increments from $-90^{\circ}$ to $90^{\circ}$. The outputs of each algorithm are then graphed on the same axes to provide a basis for comparing algorithms. Angle estimates not directly output by an algorithms are measured by finding peaks in the spatial spectrum. A block diagram of the simulation flow is shown in Figure \ref{fig::sim_workflow}.
 		
 		\begin{figure}[H]
-			\centerline{\fbox{\includegraphics[width=0.5\textwidth]{program_flow.png}}}
+			\centerline{\fbox{\includegraphics[width=0.45\textwidth]{program_flow.png}}}
 			\caption{Simulation Workflow}
 			\label{fig::sim_workflow}
 		\end{figure}
@@ -391,9 +391,7 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		\label{table::doa_varying_m}
 		\end{table}
 		
-		Comparing spatial spectrums and their resulting angle estimates, it is clear that algorithm performance degraded as the number of antenna elements decreased. Of the compared algorithms, the performance of the Beamforming alogorithm degraded the most. The sidelobes in the Beamforming spatial spectrum were much wider and larger for the $M=4$ case than they were for the $M=27$ case. The wide sidelobes reduce spatial resolution, and the high sidelobes can obscure other low power sources. 
-		
-		Compared to the Beamforming spatial spectrum, the Capon spatial spectrum was only moderately affected by the decreasing number of antenna elements. The spatial spectrum floor was approximately $15\text{dB}$ higher for the $M=4$ case than the $M=27$ case. The increased spectrum floor has implications similar to those described for Beamforming algorithm, but they are not nearly as severe. Finally, the performance of the remaining algorithms appeared to only marginally degrade as the number of antenna elements decreased.
+		Comparing spatial spectrums and their resulting angle estimates, it is clear that algorithm performance degraded as the number of antenna elements decreased. Of the compared algorithms, the performance of the Beamforming alogorithm degraded the most. The sidelobes in the Beamforming spatial spectrum were much wider and larger for the $M=4$ case than they were for the $M=27$ case. The wide sidelobes reduce spatial resolution, and the high sidelobes can obscure other low power sources. Compared to the Beamforming spatial spectrum, the Capon spatial spectrum was only moderately affected by the decreasing number of antenna elements. The spatial spectrum floor was approximately $15\text{dB}$ higher for the $M=4$ case than the $M=27$ case. The increased spectrum floor has implications similar to those described for Beamforming algorithm, but they are not nearly as severe. Finally, the performance of the remaining algorithms appeared to only marginally degrade as the number of antenna elements decreased.
 		
 		\subsection{Performance Impacts of Number of Correlation Samples}
 		
@@ -580,8 +578,14 @@ Direction of Arrival Estimation, Beamforming, Capon, MUSIC, Improved-MUSIC, Root
 		
 	\section{Conclusion}
 		
-	This paper provided an overview of direction of angle estimation using a uniform linear array. It included background information on uniform linear arrays and spatial auto-correlation matrices. It then examined how both these concepts were leveraged in specific direction of arrival estimation. These algorithms included Beamforming, Capon, MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. The performance of each algorithm was then examined, while varying a variety of parameters, which included uniform linear array size, number of correlation samples, SNR, source spaced, and source signal correlation. It was discovered that increasing the number of antenna elements, increasing the number of correlation samples, and increasing the SNR resulted in performance improvements. Certain direction of arrival algorithms were also better equipped to handle closely spaced sources. These high resolution algorithms included MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. Correlated source signals were also shown to be a problem for most direction of arrival algorithms. However, it was demonstrated that the Improved-MUSIC algorithm could handle this case.
+	This paper provided an overview of direction of angle estimation using a uniform linear array. It included background information on uniform linear arrays and spatial auto-correlation matrices. It then examined how both these concepts were leveraged in specific direction of arrival algorithms. These algorithms included Beamforming, Capon, MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. The performance of each algorithm was then examined, while varying a variety of parameters, which included uniform linear array size, number of correlation samples, SNR, source spaced, and source signal correlation. 
+	
+	It was discovered that increasing the number of antenna elements, increasing the number of correlation samples, and increasing the SNR resulted in performance improvements. Certain direction of arrival algorithms were also better equipped to handle closely spaced sources. These high resolution algorithms included MUSIC, Improved-MUSIC, Root-MUSIC, and ESPRIT. Correlated source signals were also shown to be a problem for most direction of arrival algorithms. However, it was demonstrated that the Improved-MUSIC algorithm could handle this case. 
+	
+	Future improvements to this work involve research on optimal thresholding to detect sources in the spatial spectrums and adding additional software to implement these thresholding schemes. Monte Carlo regressions could be run to evaluate the probabilities of detection corresponding to each thresholding scheme. Overall, the theory provided in this paper along with the corresponding simulations should serve as a firm foundation for understanding and implementing direction of angle estimation.
 	 
+	\raggedbottom
+	\pagebreak
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEabrv,sources}
 	\onecolumn
